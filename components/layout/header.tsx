@@ -8,10 +8,11 @@ import ThemeSwitcher from './theme-switcher'
 import Image from 'next/image'
 import MobileNav from './mobile-nav'
 import { cn } from '@/lib/utils'
+import { useTheme } from 'next-themes'
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
-
+  const { theme } = useTheme();
   useEffect(() => {
     const changeBackground = () => {
       if (window.scrollY > 100) {
@@ -28,6 +29,7 @@ const Header = () => {
 
   return (
     <motion.header
+      layoutId="header"
       className={cn(
         'bg-background/30 shadow-xs fixed inset-x-0 top-4 z-40 mx-auto flex h-[60px] max-w-5xl items-center justify-between rounded-2xl px-8 saturate-100 backdrop-blur-[10px] transition-colors',
         isScrolled && 'bg-background/80'
@@ -53,7 +55,7 @@ const Header = () => {
         className='flex items-center justify-center gap-1'
         aria-label={"Home"}
       >
-        <Image alt='' src={"/images/NLogoBlackTransparent.svg"} width={28} height={28} aria-hidden='true' className='w-6 h-auto' />
+        <Image alt='' src={theme === "dark" ? "/images/NLogoWhiteTransparent.svg" : "/images/NLogoBlackTransparent.svg"} width={28} height={28} aria-hidden='true' className='w-6 h-auto' />
       </Link>
       <div className='flex items-center gap-2'>
         <Navbar />

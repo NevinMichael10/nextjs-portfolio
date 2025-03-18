@@ -17,7 +17,7 @@ import {
     SITE_GITHUB_URL,
     SITE_INSTAGRAM_URL,
     SITE_LINKEDIN_URL,
-  } from '@/lib/constant'
+  } from '@/lib/constants'
   
   export const HEADER_LINKS = [
     {

@@ -1,3 +1,4 @@
+"use client"
 import { cn } from '@/lib/utils'
 import NextImage from 'next/image'
 import { useState } from 'react'
