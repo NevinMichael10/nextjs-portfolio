@@ -12,7 +12,14 @@ import { useTheme } from 'next-themes'
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
-  const { theme } = useTheme();
+  const { resolvedTheme } = useTheme();
+  const [logoSrc, setLogoSrc] = useState("/images/logo/NLogoBlackTransparent.svg"); // Default to light mode logo
+
+  //Update the logo after hydration to prevent SSR mismatch
+  useEffect(() => {
+    setLogoSrc(resolvedTheme === "dark" ? "/images/logo/NLogoWhiteTransparent.svg" : "/images/logo/NLogoBlackTransparent.svg");
+  }, [resolvedTheme]);
+
   useEffect(() => {
     const changeBackground = () => {
       if (window.scrollY > 100) {
@@ -55,7 +62,7 @@ const Header = () => {
         className='flex items-center justify-center gap-1'
         aria-label={"Home"}
       >
-        <Image alt='' src={theme === "dark" ? "/images/NLogoWhiteTransparent.svg" : "/images/NLogoBlackTransparent.svg"} width={28} height={28} aria-hidden='true' className='w-6 h-auto' />
+        <Image alt='' src={logoSrc} width={28} height={28} aria-hidden='true' className='w-6 h-auto' />
       </Link>
       <div className='flex items-center gap-2'>
         <Navbar />

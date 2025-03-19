@@ -14,12 +14,12 @@ const Page = async (props: PageProps) => {
   const { slug } = await props.params
   const project = projects.find((p) => p.slug === slug);
   if (!project) return notFound();
-  const { name, description } = project;
+  const { name, detailedDescription, imgPath } = project;
   return (
     <MainLayout>
       <Header {...project} />
       <BlurImage
-        src={`/images/projects/${slug}/cover.png`}
+        src={imgPath}
         width={1280}
         height={832}
         alt={name}
@@ -27,7 +27,7 @@ const Page = async (props: PageProps) => {
         lazy={false}
       />
       <div className="prose w-full">
-        <p>{description}</p>
+      <p>{detailedDescription}</p>
       </div>
     </MainLayout>
   );
