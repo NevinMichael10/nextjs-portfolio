@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import MainLayout from "@/components/layout/main-layout";
 import PageTitle from "@/components/page-title";
+import WhoAmI from "@/components/about/who-am-i";
 
 export const metadata: Metadata = {
   title: "Coming soon",
@@ -13,6 +14,7 @@ export default function Page() {
   return (
     <MainLayout>
       <PageTitle title={title} description={description} />
+      <WhoAmI/>
     </MainLayout>
   );
 };
