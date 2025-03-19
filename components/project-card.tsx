@@ -8,13 +8,13 @@ type ProjectCardsProps = {
   projects: Project[];
 };
 
-const ProjectCard = ({ name, description, techstack, slug }: Project) => (
+const ProjectCard = ({ name, description, techstack, slug, imgPath }: Project) => (
   <Link
     href={`/projects/${slug}`}
     className="shadow-feature-card group rounded-xl px-2 py-4"
   >
     <BlurImage
-      src={`/images/projects/${slug}/cover.png`}
+      src={imgPath}
       width={1280}
       height={832}
       imageClassName="group-hover:scale-105"

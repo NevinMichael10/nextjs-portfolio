@@ -22,7 +22,7 @@ const animation = {
 type HeaderProps = Project
 
 const Header = (props: HeaderProps) => {
-  const { name, description, homepage, github } = props
+  const { name, description, website, github } = props
 
   const repo = github?.split('/').pop()
 
@@ -44,8 +44,8 @@ const Header = (props: HeaderProps) => {
         animate={animation.show}
         transition={{ delay: 0.1 }}
       >
-        {homepage && (
-          <Link href={homepage || "#"} className={cn(buttonVariants(), 'group')} target="_blank">
+        {website && (
+          <Link href={website || "#"} className={cn(buttonVariants(), 'group')} target="_blank">
             {"Visit Website"}
             <ArrowUpRightIcon className='ml-2 size-5 transition-transform group-hover:-rotate-12' />
           </Link>

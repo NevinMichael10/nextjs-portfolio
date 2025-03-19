@@ -24,7 +24,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
         width={1512}
         height={550}
         className="absolute left-1/2 top-0 -z-10 -translate-x-1/2 w-full h-auto"
-        src="/images/gradient-background-top.png"
+        src="/images/layout-bg/gradient-background-top.png"
         alt=""
         priority
       />
@@ -35,7 +35,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
         width={1512}
         height={447}
         className="absolute left-1/2 -z-10 -translate-x-1/2 w-full h-auto"
-        src="/images/gradient-background-bottom.png"
+        src="/images/layout-bg/gradient-background-bottom.png"
         alt=""
         priority
         style={{ bottom: 0 }}
