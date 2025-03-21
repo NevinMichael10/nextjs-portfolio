@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import MainLayout from "@/components/layout/main-layout";
 import FilteredPosts from "@/components/filtered-posts";
 import PageTitle from "@/components/page-title";
 
@@ -13,9 +12,9 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <MainLayout>
+    <>
       <PageTitle title={title} description={description} />
       <FilteredPosts />
-    </MainLayout>
+    </>
   );
 }

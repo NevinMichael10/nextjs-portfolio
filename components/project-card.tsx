@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { BlurImage } from "./ui/blur-image";
-import { Project } from "@/lib/projects";
 
 type ProjectCardsProps = {
   projects: Project[];

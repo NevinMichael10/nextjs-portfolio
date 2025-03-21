@@ -3,7 +3,7 @@
 const whoAmIData = {
   bio: {
     role: "Software Engineer",
-    birthDate: "2001-10-28",
+    birthDate: "2001-10-28", //yyyy-mm-dd
     description:
       "I'm passionate about building cutting-edge applications that solve real-world problems. With a blend of technical expertise, creative thinking, and a constant hunger for learning, I develop solutions that are not only functional but also impactful."
   },
@@ -25,7 +25,7 @@ const whoAmIData = {
     "State Management": "Zustand",
     Deployment: "Vercel",
     Styling: "Tailwind CSS",
-    "UI Components": ["Headless UI", "Radix UI", "Geist UI"],
+    "UI Components": ["Headless UI", "Radix UI", "Shadcn UI" ],
     Animations: ["Motion", "React Spring", "TailwindCSS Animate"],
   }
 };
@@ -47,11 +47,14 @@ export default function WhoAmI() {
 
         <h2 className="text-2xl font-bold mt-12">Skills and tools</h2>
         <ul className="mt-6 flex flex-wrap gap-2">
-          {whoAmIData.skills.map((skill, index) => (
-            <li key={index} className="bg-gray-800 text-white px-3 py-1 rounded-md text-sm">
-              {skill}
-            </li>
-          ))}
+          {whoAmIData.skills.map((skill) => (
+          <span
+            key={skill}
+            className="rounded-full border bg-zinc-50 px-3 py-2 text-xs leading-4 dark:bg-zinc-900"
+          >
+            {skill}
+          </span>
+        ))}
         </ul>
 
         <h2 className="text-2xl font-bold mt-12">Why me?</h2>

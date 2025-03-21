@@ -8,17 +8,9 @@ import ThemeSwitcher from './theme-switcher'
 import Image from 'next/image'
 import MobileNav from './mobile-nav'
 import { cn } from '@/lib/utils'
-import { useTheme } from 'next-themes'
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
-  const { resolvedTheme } = useTheme();
-  const [logoSrc, setLogoSrc] = useState("/images/logo/NLogoBlackTransparent.svg"); // Default to light mode logo
-
-  //Update the logo after hydration to prevent SSR mismatch
-  useEffect(() => {
-    setLogoSrc(resolvedTheme === "dark" ? "/images/logo/NLogoWhiteTransparent.svg" : "/images/logo/NLogoBlackTransparent.svg");
-  }, [resolvedTheme]);
 
   useEffect(() => {
     const changeBackground = () => {
@@ -51,18 +43,13 @@ const Header = () => {
         duration: 0.3
       }}
     >
-      <a
-        href='#skip-nav'
-        className='bg-background focus-visible:ring-ring rounded-xs shadow-xs focus-visible:ring-3 fixed left-4 top-4 -translate-y-20 border p-2 font-medium transition-transform focus-visible:translate-y-0 focus-visible:ring-offset-2'
-      >
-        <span>spaannnnnnn</span>
-      </a>
       <Link
         href='/'
         className='flex items-center justify-center gap-1'
         aria-label={"Home"}
       >
-        <Image alt='' src={logoSrc} width={28} height={28} aria-hidden='true' className='w-6 h-auto' />
+        <Image alt='dark-mode-img' src={"/images/logo/NLogoWhiteTransparent.svg"} width={28} height={28} aria-hidden='true' className='w-6 h-auto hidden dark:block' />
+        <Image alt='light-mode-img' src={"/images/logo/NLogoBlackTransparent.svg"} width={28} height={28} aria-hidden='true' className='w-6 h-auto dark:hidden' />
       </Link>
       <div className='flex items-center gap-2'>
         <Navbar />

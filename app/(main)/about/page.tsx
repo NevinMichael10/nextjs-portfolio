@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import MainLayout from "@/components/layout/main-layout";
 import PageTitle from "@/components/page-title";
 import WhoAmI from "@/components/about/who-am-i";
 
@@ -12,9 +11,9 @@ const description = "Hi there! I am Nevin Michael, a Software Engineer who loves
 
 export default function Page() {
   return (
-    <MainLayout>
+    <>
       <PageTitle title={title} description={description} />
       <WhoAmI/>
-    </MainLayout>
+    </>
   );
 };
