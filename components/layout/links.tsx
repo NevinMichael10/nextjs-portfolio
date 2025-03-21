@@ -32,8 +32,8 @@ import {
     },
     {
       icon: <MessageCircleIcon className='size-3.5' />,
-      href: '/education',
-      key: 'Education'
+      href: '/journey',
+      key: 'Journey'
     },
     {
       icon: <MonitorIcon className='size-3.5' />,
@@ -59,7 +59,7 @@ import {
     {
       id: 2,
       links: [
-        { href: '/education', key: 'Education' },
+        { href: '/Journey', key: 'Journey' },
         { href: '/certs', key: 'Certs' },
         { href: '/tech', key: 'Tech' }
       ]

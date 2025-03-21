@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { projects } from "@/lib/projects";
-import MainLayout from "@/components/layout/main-layout";
 import Header from "./header";
 import { BlurImage } from "@/components/ui/blur-image";
 
@@ -16,7 +15,7 @@ const Page = async (props: PageProps) => {
   if (!project) return notFound();
   const { name, detailedDescription, imgPath } = project;
   return (
-    <MainLayout>
+    <>
       <Header {...project} />
       <BlurImage
         src={imgPath}
@@ -29,7 +28,7 @@ const Page = async (props: PageProps) => {
       <div className="prose w-full">
       <p>{detailedDescription}</p>
       </div>
-    </MainLayout>
+    </>
   );
 }
 

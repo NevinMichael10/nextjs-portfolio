@@ -5,7 +5,6 @@ import { ArrowUpRightIcon } from 'lucide-react'
 import { motion } from 'motion/react'
 import { GITHUB_USERNAME } from '@/lib/constants'
 import { cn } from '@/lib/utils'
-import { Project } from '@/lib/projects'
 import Link from 'next/link'
 
 const animation = {

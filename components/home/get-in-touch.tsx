@@ -113,7 +113,7 @@ const GetInTouch = () => {
 
           <div className='flex flex-col justify-center px-4'>
             <p className='bg-linear-to-r mb-2 from-black to-black/70 bg-clip-text text-3xl font-semibold text-transparent dark:from-zinc-100 dark:to-zinc-400'>
-              {"Any questions about Next.js?"}
+              {"Any questions?"}
             </p>
             <p className='text-zinc-800 dark:text-zinc-300'>
               {"Feel free to reach out to me!"}
