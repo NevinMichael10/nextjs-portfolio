@@ -58,7 +58,7 @@ const GetInTouch = () => {
         <div className='flex gap-12 max-md:flex-col'>
           <div className='relative size-64 max-md:mx-auto' ref={scope}>
             <BlurImage
-              src={"/images/NLogoBlackBg.svg"}
+              src={"/images/logo/NLogoBlackBg.svg"}
               width={3975}
               height={3975}
               className='absolute left-1/2 top-1/2 size-20 -translate-x-1/2 -translate-y-1/2 rounded-[20px]'
