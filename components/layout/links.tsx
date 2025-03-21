@@ -26,25 +26,25 @@ import {
       key: 'About'
     },
     {
+      icon: <BarChartIcon className='size-3.5' />,
+      href: '/projects',
+      key: 'Projects'
+    },
+    {
       icon: <MessageCircleIcon className='size-3.5' />,
       href: '/education',
       key: 'Education'
     },
     {
-      icon: <BarChartIcon className='size-3.5' />,
-      href: '/projects',
-      key: 'Projects'
+      icon: <MonitorIcon className='size-3.5' />,
+      href: '/certs',
+      key: 'Certs'
     },
     {
       icon: <FlameIcon className='size-3.5' />,
       href: '/tech',
       key: 'Tech'
     },
-    {
-      icon: <MonitorIcon className='size-3.5' />,
-      href: '/uses',
-      key: 'Uses'
-    }
   ] as const
   
   export const FOOTER_LINKS = [
@@ -53,16 +53,15 @@ import {
       links: [
         { href: '/', key: 'Home' },
         { href: '/about', key: 'About' },
-        { href: '/education', key: 'Education' },
-        { href: '/projects', key: 'Projects' }
+        { href: '/projects', key: 'Projects' },
       ]
     },
     {
       id: 2,
       links: [
-        { href: '/uses', key: 'Uses' },
-        { href: '/projects', key: 'Projects' },
-        { href: '/links', key: 'Links' }
+        { href: '/education', key: 'Education' },
+        { href: '/certs', key: 'Certs' },
+        { href: '/tech', key: 'Tech' }
       ]
     },
     {

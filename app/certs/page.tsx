@@ -1,20 +1,21 @@
 import { Metadata } from "next";
 import MainLayout from "@/components/layout/main-layout";
+import FilteredPosts from "@/components/filtered-posts";
 import PageTitle from "@/components/page-title";
-import WhoAmI from "@/components/about/who-am-i";
+
+const title = "Certificates";
+const description = "Check out some of the certifications I have earned.";
 
 export const metadata: Metadata = {
-  title: "Coming soon",
-  description: "The page you are viewing is under construction",
+  title: `${title} page`,
+  description: `${description}`,
 };
-const title = "About";
-const description = "Hi there! I am Nevin Michael, a Software Engineer who loves to solve problems using modern technologies."; 
 
 export default function Page() {
   return (
     <MainLayout>
       <PageTitle title={title} description={description} />
-      <WhoAmI/>
+      <FilteredPosts />
     </MainLayout>
   );
-};
+}
