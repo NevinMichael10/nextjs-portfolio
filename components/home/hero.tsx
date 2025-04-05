@@ -1,29 +1,25 @@
-"use client";
-
-import { AnimatePresence, motion } from "motion/react";
-import { useEffect, useState } from "react";
-import { BlurImage } from "../ui/blur-image";
+"use client"
+import { AnimatePresence, motion } from "motion/react"
+import { useEffect, useState } from "react"
+import { BlurImage } from "../ui/blur-image"
+import { introText } from "@/lib/constants";
 
 const TEXTS = [
   {
     key: "amazing",
-    className:
-      "bg-clip-text text-center text-transparent bg-linear-to-r from-[#ff1835] to-[#ffc900]",
+    className: "bg-clip-text text-center text-transparent bg-linear-to-r from-[#ff1835] to-[#ffc900]",
   },
   {
     key: "stunning",
-    className:
-      "bg-clip-text text-center text-transparent bg-linear-to-r from-[#0077ff] to-[#00e7df]",
+    className: "bg-clip-text text-center text-transparent bg-linear-to-r from-[#0077ff] to-[#00e7df]",
   },
   {
     key: "fantastic",
-    className:
-      "bg-clip-text text-center text-transparent bg-linear-to-r from-[#7f00de] to-[#ff007f]",
+    className: "bg-clip-text text-center text-transparent bg-linear-to-r from-[#7f00de] to-[#ff007f]",
   },
   {
     key: "attractive",
-    className:
-      "bg-clip-text text-center text-transparent bg-linear-to-r from-[#2ecc70] to-[#1ca085]",
+    className: "bg-clip-text text-center text-transparent bg-linear-to-r from-[#2ecc70] to-[#1ca085]",
   },
 ] as const;
 
@@ -69,7 +65,7 @@ const Hero = () => {
               animate={{ x: 0, opacity: 1 }}
               transition={{ ease: "easeOut" }}
             >
-              {"I'm Nevin Michael, a Software Engineer"}
+              {introText.greeting}
             </motion.div>
             <motion.div
               initial={{ x: 30, opacity: 0 }}
@@ -82,7 +78,7 @@ const Hero = () => {
                 key="title-middle-left"
                 className="leading-[30px] sm:leading-[45px]"
               >
-                {"building"}
+                {introText.building}
               </motion.div>
               <div className="relative overflow-hidden">
                 <AnimatePresence mode="popLayout">
@@ -108,7 +104,7 @@ const Hero = () => {
                 key="title-middle-right"
                 className="leading-[30px] sm:leading-[45px]"
               >
-                {"websites using"}
+                {introText.websitesUsing}
               </motion.div>
             </motion.div>
             <motion.div
@@ -116,7 +112,7 @@ const Hero = () => {
               animate={{ x: 0, opacity: 1 }}
               transition={{ ease: "easeOut" }}
             >
-              {"modern technologies"}
+              {introText.modernTech}
             </motion.div>
           </h1>
           <motion.div
@@ -125,7 +121,7 @@ const Hero = () => {
             transition={{ ease: "easeOut" }}
             className="text-muted-foreground text-sm"
           >
-            {"India • UTC/GMT +5:30"}
+            {introText.location}
           </motion.div>
         </div>
         <motion.div
@@ -152,7 +148,7 @@ const Hero = () => {
         </motion.div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero
