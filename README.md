@@ -17,7 +17,8 @@ You can download it directly from [https://nodejs.org](https://nodejs.org)
 **OR**
 
 Use **nvm (Node Version Manager)**
-➤ [Install nvm](https://github.com/nvm-sh/nvm) for macOS/Linux or [nvm for Windows](https://github.com/coreybutler/nvm-windows)
+➤ [Install nvm for macOS/Linux](https://github.com/nvm-sh/nvm)
+➤ [Install nvm for Windows](https://github.com/coreybutler/nvm-windows)
 
 Once installed, use:
 
