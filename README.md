@@ -9,24 +9,43 @@ This project uses the following versions:
 - **Node.js** version: `v22.14.0`
 - **pnpm** version: `10.5.2`
 
-If you don't have pnpm installed, you can install it globally:
+### 1. Install Node.js & pnpm (if not already installed)
+
+👉 **Install Node.js** (Recommended version: `v22.14.0`)
+You can download it directly from [https://nodejs.org](https://nodejs.org)
+
+**OR**
+
+Use **nvm (Node Version Manager)**
+➤ [Install nvm](https://github.com/nvm-sh/nvm) for macOS/Linux or [nvm for Windows](https://github.com/coreybutler/nvm-windows)
+
+Once installed, use:
 
 ```bash
-npm install -g pnpm
+nvm install 22.14.0
+nvm use 22.14.0
 ```
 
-If you need to manage multiple versions of Node.js, install **nvm** (Node Version Manager):
+👉 **Install pnpm globally (Recommended version: `10.5.2`)**
 
-- [nvm for macOS/Linux](https://github.com/nvm-sh/nvm)
-- [nvm for Windows](https://github.com/coreybutler/nvm-windows)
+```bash
+npm install -g pnpm@10.5.2
+```
 
-Then, install dependencies:
+✅ **Check versions to confirm:**
+
+```bash
+node -v
+pnpm -v
+```
+
+### 2. Install Project Dependencies
 
 ```bash
 pnpm install
 ```
 
-Run the development server:
+### 3. Run the Development Server
 
 ```bash
 pnpm dev
