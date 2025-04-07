@@ -1,9 +1,4 @@
 import GoToHomepage from "@/components/home/go-to-homepage";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Coming Soon",
-};
 
 const ComingSoon = () => {
   return (

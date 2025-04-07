@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import MainLayout from "@/components/layout/main-layout";
-import ComingSoon from "../../coming-soon";
+import ComingSoon from "@/components/coming-soon/coming-soon";
 
 export const metadata: Metadata = {
   title: "Coming soon",
