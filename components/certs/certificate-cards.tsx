@@ -1,24 +1,23 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import { BlurImage } from './ui/blur-image'
-import { Post } from '@/lib/certificates'
+import Link from "next/link";
+import { BlurImage } from "../ui/blur-image";
 
 type PostCardsProps = {
-  posts: Post[]
-}
+  posts: Certificate[];
+};
 
-const PostCards = ({ posts }: PostCardsProps) => {
+const CertificateCards = ({ posts }: PostCardsProps) => {
   return (
     <div className="grid gap-4 md:grid-cols-2">
       {posts.map((post) => (
-        <PostCard key={post.id} {...post} />
+        <CertificateCard key={post.id} {...post} />
       ))}
     </div>
-  )
-}
+  );
+};
 
-const PostCard = ({ id, certificateName, description, imgPath, issueDate, issuer }: Post) => {
+const CertificateCard = ({ id, certificateName, description, imgPath, issueDate, issuer }: Certificate) => {
   return (
     <Link href={`/${id}`} className="shadow-feature-card group rounded-xl px-2 py-4">
       <BlurImage
@@ -40,7 +39,7 @@ const PostCard = ({ id, certificateName, description, imgPath, issueDate, issuer
         <p className="text-muted-foreground mt-2">{description}</p>
       </div>
     </Link>
-  )
-}
+  );
+};
 
-export default PostCards
+export default CertificateCards;
