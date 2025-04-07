@@ -2,18 +2,17 @@ import { Metadata } from "next";
 import PageTitle from "@/components/page-title";
 import Experience from "@/components/journey/experience";
 import Education from "@/components/journey/education";
+import { journeyPage } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Coming soon",
-  description: "The page you are viewing is under construction",
+  title: `${journeyPage.title} page`,
+  description: `${journeyPage.description}`,
 };
-const title = "Journey";
-const description = "Explore my experiences and learning path that shaped my career in software development."; 
 
 export default function Page() {
   return (
     <>
-      <PageTitle title={title} description={description} />
+      <PageTitle title={journeyPage.title} description={journeyPage.description} />
       <Experience />
       <Education />
     </>

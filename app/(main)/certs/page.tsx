@@ -1,20 +1,18 @@
 import { Metadata } from "next";
-import FilteredPosts from "@/components/filtered-posts";
+import FilteredCerts from "@/components/certs/filtered-certs";
 import PageTitle from "@/components/page-title";
-
-const title = "Certificates";
-const description = "Check out some of the certifications I have earned.";
+import { certPage } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: `${title} page`,
-  description: `${description}`,
+  title: `${certPage.title} page`,
+  description: `${certPage.description}`,
 };
 
 export default function Page() {
   return (
     <>
-      <PageTitle title={title} description={description} />
-      <FilteredPosts />
+      <PageTitle title={certPage.title} description={certPage.description} />
+      <FilteredCerts />
     </>
   );
 }

@@ -1,16 +1,16 @@
 import { notFound } from "next/navigation";
-import { projects } from "@/lib/projects";
 import Header from "./header";
 import { BlurImage } from "@/components/ui/blur-image";
+import { projects } from "@/lib/constants";
 
 type PageProps = {
   params: Promise<{
-    slug: string
-  }>
-}
+    slug: string;
+  }>;
+};
 
 const Page = async (props: PageProps) => {
-  const { slug } = await props.params
+  const { slug } = await props.params;
   const project = projects.find((p) => p.slug === slug);
   if (!project) return notFound();
   const { name, detailedDescription, imgPath } = project;
@@ -26,10 +26,10 @@ const Page = async (props: PageProps) => {
         lazy={false}
       />
       <div className="prose w-full">
-      <p>{detailedDescription}</p>
+        <p>{detailedDescription}</p>
       </div>
     </>
   );
-}
+};
 
 export default Page;

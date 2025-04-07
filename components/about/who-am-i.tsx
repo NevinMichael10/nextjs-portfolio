@@ -1,40 +1,11 @@
 "use client";
 
-const whoAmIData = {
-  bio: {
-    role: "Software Engineer",
-    birthDate: "2001-10-28", //yyyy-mm-dd
-    description:
-      "I'm passionate about building cutting-edge applications that solve real-world problems. With a blend of technical expertise, creative thinking, and a constant hunger for learning, I develop solutions that are not only functional but also impactful."
-  },
-  skills: [
-    "React.js", "Next.js", "Spring Boot", "Mendix", "PostgreSQL", "MySQL",
-    "TypeScript", "JavaScript", "HTML", "CSS", "Tailwind", "Bootstrap",
-    "Git", "GitHub", "DigitalOcean", "Linux", "Power Automate", 
-    "Watson Orchestrate", "Zustand", "VS Code", "IntelliJ", "STS", 
-    "Canva", "Photoshop"
-  ],
-  whyMe: [
-    "A creative thinker with a knack for solving challenging problems.",
-    "Always on the pulse of the latest tech trends to deliver forward-thinking solutions.",
-    "A team player with a passion for collaboration and innovation."
-  ],
-  aboutThisSite: {
-    Framework : "Next.js",
-    Authentication: "Next Auth",
-    "State Management": "Zustand",
-    Deployment: "Vercel",
-    Styling: "Tailwind CSS",
-    "UI Components": ["Headless UI", "Radix UI", "Shadcn UI" ],
-    Animations: ["Motion", "React Spring", "TailwindCSS Animate"],
-  }
-};
+import { whoAmIData } from "@/lib/constants";
 
 export default function WhoAmI() {
   const birthDate = new Date(whoAmIData.bio.birthDate);
   const currentDate = new Date();
-  const age =
-    currentDate.getFullYear() - birthDate.getFullYear() - (currentDate < new Date(currentDate.getFullYear(), birthDate.getMonth(), birthDate.getDate()) ? 1 : 0);
+  const age = currentDate.getFullYear() - birthDate.getFullYear() - (currentDate < new Date(currentDate.getFullYear(), birthDate.getMonth(), birthDate.getDate()) ? 1 : 0);
 
   return (
     <section className="mx-auto">
@@ -59,8 +30,8 @@ export default function WhoAmI() {
 
         <h2 className="text-2xl font-bold mt-12">Why me?</h2>
         <ul className="mt-6 list-disc marker:text-red-500 pl-6">
-          {whoAmIData.whyMe.map((reason, index) => (
-            <li key={index}>{reason}</li>
+          {whoAmIData.whyMe.map((reason) => (
+            <li key={reason.id}>{reason.text}</li>
           ))}
         </ul>
 
