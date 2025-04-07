@@ -1,3 +1,6 @@
+import { SiFacebook, SiGithub, SiInstagram } from "@icons-pack/react-simple-icons";
+import { FaLinkedinIn } from "react-icons/fa";
+
 export const isProduction = process.env.NODE_ENV === "production";
 export const SITE_URL = isProduction ? "https://nevinm.netlify.app" : "http://localhost:3000";
 export const GITHUB_USERNAME = "NevinMichael10";
@@ -7,6 +10,31 @@ export const SITE_GITHUB_URL = "https://github.com/NevinMichael10";
 export const SITE_FACEBOOK_URL = "https://www.facebook.com/Nevin.michael.28";
 export const SITE_INSTAGRAM_URL = "https://www.instagram.com/infernal_encipherer";
 export const SITE_LINKEDIN_URL = "https://www.linkedin.com/in/nevin-michael-24716a231";
+
+export const authorName = "Nevin Michael";
+
+export const SOCIAL_LINKS = [
+  {
+    href: SITE_GITHUB_URL,
+    title: "GitHub",
+    icon: SiGithub,
+  },
+  {
+    href: SITE_FACEBOOK_URL,
+    title: "Facebook",
+    icon: SiFacebook,
+  },
+  {
+    href: SITE_INSTAGRAM_URL,
+    title: "Instagram",
+    icon: SiInstagram,
+  },
+  {
+    href: SITE_LINKEDIN_URL,
+    title: "LinkedIn",
+    icon: FaLinkedinIn,
+  },
+];
 
 //Home Page
 export const ABOUTME = {
@@ -21,7 +49,7 @@ export const contactInfo = {
 };
 
 export const introText = {
-  greeting: "I'm Nevin Michael, a Software Engineer",
+  greeting: `I'm ${authorName}, a Software Engineer`,
   building: "building",
   websitesUsing: "websites using",
   modernTech: "modern technologies",
@@ -29,7 +57,7 @@ export const introText = {
 };
 
 export const techTags: TechTags = {
-  author: "Nevin Michael",
+  author: "Nevin", // First name only
   label: "Next.js",
   label2: "React.js",
   label3: "TypeScript",
@@ -39,41 +67,16 @@ export const techTags: TechTags = {
 //About Page
 export const aboutPage = {
   title: "About",
-  description: "Hi there! I am Nevin Michael, a Software Engineer who loves to solve problems using modern technologies.",
+  description: `Hi there! I am ${authorName}, a Software Engineer who loves to solve problems using modern technologies.`,
 };
 
 export const whoAmIData = {
   bio: {
     role: "Software Engineer",
-    birthDate: "2001-10-28", //yyyy-mm-dd
+    birthDate: "2001-10-28", //yyyy-mm-dd format strictly
     description: "I'm passionate about building cutting-edge applications that solve real-world problems. With a blend of technical expertise, creative thinking, and a constant hunger for learning, I develop solutions that are not only functional but also impactful.",
   },
-  skills: [
-    "React.js",
-    "Next.js",
-    "Spring Boot",
-    "Mendix",
-    "PostgreSQL",
-    "MySQL",
-    "TypeScript",
-    "JavaScript",
-    "HTML",
-    "CSS",
-    "Tailwind",
-    "Bootstrap",
-    "Git",
-    "GitHub",
-    "DigitalOcean",
-    "Linux",
-    "Power Automate",
-    "Watson Orchestrate",
-    "Zustand",
-    "VS Code",
-    "IntelliJ",
-    "STS",
-    "Canva",
-    "Photoshop",
-  ],
+  skills: ["React.js", "Next.js", "Spring Boot", "Mendix", "PostgreSQL", "MySQL", "TypeScript", "JavaScript", "HTML", "CSS", "Tailwind", "Bootstrap", "Git", "GitHub", "DigitalOcean", "Linux", "Power Automate", "Watson Orchestrate", "Zustand", "VS Code", "IntelliJ", "STS", "Canva", "Photoshop"],
   whyMe: [
     {
       id: 1,

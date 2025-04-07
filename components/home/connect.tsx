@@ -1,6 +1,6 @@
+import { SOCIAL_LINKS } from "@/lib/constants"
 import { LinkIcon } from "lucide-react"
 import Link from "next/link"
-import { SOCIAL_LINKS } from "../layout/links"
 
 const Connect = () => {
   return (

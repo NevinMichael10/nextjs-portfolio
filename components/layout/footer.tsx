@@ -1,5 +1,6 @@
 "use client";
 
+import { authorName } from "@/lib/constants";
 import { FOOTER_LINKS } from "./links";
 import Link from "next/link";
 
@@ -21,7 +22,7 @@ const Footer = () => {
         ))}
       </div>
       <div className="mt-20 flex items-center justify-between text-sm">
-        <div>&copy; {new Date().getFullYear()} Nevin Michael</div>
+        <div>&copy; {new Date().getFullYear()} {authorName}</div>
       </div>
     </footer>
   );
