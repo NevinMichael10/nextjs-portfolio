@@ -1,20 +1,18 @@
 import { Metadata } from "next";
 import PageTitle from "@/components/page-title";
-import ProjectCards from "@/components/project-card";
-import { projects } from "@/lib/projects";
+import { ProjectPage } from "@/lib/constants";
+import FilteredProjects from "@/components/projects/filtered-projects";
 
 export const metadata: Metadata = {
-  title: "Coming soon",
-  description: "The page you are viewing is under construction",
+  title: `${ProjectPage.title} page`,
+  description: `${ProjectPage.description}`,
 };
-const title = "Projects";
-const description = "Check out some of the projects I've worked on."; 
 
 export default function Page() {
   return (
     <>
-      <PageTitle title={title} description={description} />
-      <ProjectCards projects={projects} />
+      <PageTitle title={ProjectPage.title} description={ProjectPage.description} />
+      <FilteredProjects />
     </>
   );
 };

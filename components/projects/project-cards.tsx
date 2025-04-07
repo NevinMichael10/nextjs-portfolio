@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { BlurImage } from "./ui/blur-image";
+import { BlurImage } from "../ui/blur-image";
 
 type ProjectCardsProps = {
   projects: Project[];

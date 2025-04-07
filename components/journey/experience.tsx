@@ -1,34 +1,9 @@
 "use client";
 
+import { experiences } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
-
-const experiences: Experience[] = [
-  {
-    id: 1,
-    title: "Software Engineer",
-    organization: "Strebentechnik Private Limited, Alappuzha",
-    date: "January 2024 - Present",
-    description: "Developing and maintaining software applications.",
-  },
-  {
-    id: 2,
-    title: "Intern",
-    organization: "Strebentechnik Private Limited, Alappuzha",
-    date: "August 2023 - January 2024",
-    description:
-      "Worked on Mendix low-code development, HTML, CSS and other technologies.",
-  },
-  {
-    id: 3,
-    title: "Data Entry Specialist",
-    organization: "AITIA Infotech, Kochi",
-    date: "2019 - 2020",
-    description:
-      "Handled data entry, provided telecalling support, and managed data processing in Excel for business operations.",
-  },
-];
 
 const variants = {
   initial: {

@@ -2,27 +2,7 @@
 import { motion, useInView } from "motion/react";
 import { cn } from "@/lib/utils";
 import { useRef } from "react";
-
-const education: Education[] = [
-  {
-    id: 1,
-    course: "Computer Science & Engineering",
-    institution: "College of Engineering and Management Punnapra, Alappuzha, Kerala",
-    period: "2019 - 2023",
-  },
-  {
-    id: 2,
-    course: "Higher Secondary",
-    institution: "Santa Cruz HSS Fort Kochi, Ernakulam, Kerala",
-    period: "2017 - 2019",
-  },
-  {
-    id: 3,
-    course: "High School",
-    institution: "St. Louis High School Mundamveli, Ernakulam, Kerala",
-    period: "2014 - 2017",
-  },
-];
+import { education } from "@/lib/constants";
 
 const variants = {
   initial: {

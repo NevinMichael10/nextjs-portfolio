@@ -8,13 +8,13 @@ type MenuGroup = {
 };
 
 type ItemGridProps = {
-  groups: MenuGroup[];
+  stackGroups: MenuGroup[];
 };
 
-const ItemGrid = ({ groups }: ItemGridProps) => {
+const ItemGrid = ({ stackGroups }: ItemGridProps) => {
   return (
     <div className="space-y-12">
-      {groups.map((group) => (
+      {stackGroups.map((group) => (
         <div key={group.id}>
           <h2 className="mb-4 text-2xl font-bold">{group.name}</h2>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-4">
