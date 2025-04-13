@@ -463,12 +463,6 @@ export const stackGroups = [
         description: "FTP client",
         url: "https://winscp.net",
       },
-      {
-        imagePath: "/images/tech/vlc.png",
-        name: "VLC",
-        description: "Media player",
-        url: "https://www.videolan.org/vlc/",
-      },
     ],
   },
   {
