@@ -137,7 +137,7 @@ const Hero = () => {
           }}
         >
           <BlurImage
-            src='/images/logo/NLogoBlackBg.svg'
+            src={introText.imagePath}
             className='rounded-full'
             width={112}
             height={112}

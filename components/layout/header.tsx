@@ -8,6 +8,7 @@ import ThemeSwitcher from './theme-switcher'
 import Image from 'next/image'
 import MobileNav from './mobile-nav'
 import { cn } from '@/lib/utils'
+import { layoutUI } from '@/lib/constants'
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -48,8 +49,8 @@ const Header = () => {
         className='flex items-center justify-center gap-1'
         aria-label={"Home"}
       >
-        <Image alt='dark-mode-img' src={"/images/logo/NLogoWhiteTransparent.svg"} width={28} height={28} aria-hidden='true' className='w-6 h-auto hidden dark:block' />
-        <Image alt='light-mode-img' src={"/images/logo/NLogoBlackTransparent.svg"} width={28} height={28} aria-hidden='true' className='w-6 h-auto dark:hidden' />
+        <Image alt='light-mode-img' src={layoutUI.lightImagePath} width={28} height={28} aria-hidden='true' className='w-6 h-auto dark:hidden' />
+        <Image alt='dark-mode-img' src={layoutUI.darkImagePath} width={28} height={28} aria-hidden='true' className='w-6 h-auto hidden dark:block' />
       </Link>
       <div className='flex items-center gap-2'>
         <Navbar />

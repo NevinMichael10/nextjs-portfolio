@@ -46,6 +46,12 @@ export const SOCIAL_LINKS = [
   },
 ];
 
+//Layout
+export const layoutUI = {
+  lightImagePath: "/images/logo/nlogo-black-transparent.svg",
+  darkImagePath: "/images/logo/nlogo-white-transparent.svg",
+};
+
 //Home Page
 export const homePage = {
   title: "Nevin Michael's Portfolio",
@@ -76,10 +82,12 @@ export const introText = {
   websitesUsing: "websites using",
   modernTech: "modern technologies",
   location: "India • UTC/GMT +5:30",
+  imagePath: "/images/logo/nlogo-black-bg.svg",
 };
 
 export const techTags: TechTags = {
   author: "Nevin", // First name only
+  imagePath: "/images/logo/nlogo-black-bg.svg",
   label: "Next.js",
   label2: "React.js",
   label3: "TypeScript",
