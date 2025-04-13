@@ -1,10 +1,25 @@
 import { Metadata } from "next";
 import MainLayout from "@/components/layout/main-layout";
 import ComingSoon from "@/components/coming-soon/coming-soon";
+import { defaultMetadata } from "@/lib/metadata.config";
+import { comingSoon, SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Coming soon",
-  description: "The page you are viewing is under construction",
+  ...defaultMetadata,
+  title: comingSoon.title,
+  description: comingSoon.metaDesc,
+  keywords: [...(defaultMetadata.keywords ?? []), ...comingSoon.metaKeywords],
+  openGraph: {
+    ...defaultMetadata.openGraph,
+    title: comingSoon.metaTitle,
+    description: comingSoon.metaDesc,
+    url: `${SITE_URL}/links`,
+  },
+  twitter: {
+    ...defaultMetadata.twitter,
+    title: comingSoon.metaTitle,
+    description: comingSoon.metaDesc,
+  },
 };
 
 export default function Page() {

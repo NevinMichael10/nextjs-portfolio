@@ -4,10 +4,10 @@ import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/provider";
 import { cn } from "@/lib/utils";
+import { defaultMetadata } from "@/lib/metadata.config";
 
 export const metadata: Metadata = {
-  title: "Nevin Michael's Portfolio",
-  description: "Nevin Michael's Portfolio Website",
+  ...defaultMetadata,
 };
 
 export default function RootLayout({children}: Readonly<{children: React.ReactNode}>) {
