@@ -1,17 +1,31 @@
 import { Metadata } from "next";
 import PageTitle from "@/components/page-title";
-import { ProjectPage } from "@/lib/constants";
 import FilteredProjects from "@/components/projects/filtered-projects";
+import { defaultMetadata } from "@/lib/metadata.config";
+import { projectPage, SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: `${ProjectPage.title} page`,
-  description: `${ProjectPage.description}`,
+  ...defaultMetadata,
+  title: projectPage.title,
+  description: projectPage.metaDesc,
+  keywords: [...(defaultMetadata.keywords ?? []), ...projectPage.metaKeywords],
+  openGraph: {
+    ...defaultMetadata.openGraph,
+    title: projectPage.metaTitle,
+    description: projectPage.metaDesc,
+    url: `${SITE_URL}/journey`,
+  },
+  twitter: {
+    ...defaultMetadata.twitter,
+    title: projectPage.metaTitle,
+    description: projectPage.metaDesc,
+  },
 };
 
 export default function Page() {
   return (
     <>
-      <PageTitle title={ProjectPage.title} description={ProjectPage.description} />
+      <PageTitle title={projectPage.title} description={projectPage.description} />
       <FilteredProjects />
     </>
   );

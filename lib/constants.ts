@@ -1,14 +1,62 @@
+import { SiFacebook, SiGithub, SiInstagram } from "@icons-pack/react-simple-icons";
+import { FaLinkedinIn } from "react-icons/fa";
+
 export const isProduction = process.env.NODE_ENV === "production";
 export const SITE_URL = isProduction ? "https://nevinm.netlify.app" : "http://localhost:3000";
 export const GITHUB_USERNAME = "NevinMichael10";
 export const SITE_NAME = "Nevin Michael";
-export const SITE_KEYWORDS = ["Nevin", "Nevin Michael", "Next.js", "React", "TypeScript", "Node.js"];
 export const SITE_GITHUB_URL = "https://github.com/NevinMichael10";
 export const SITE_FACEBOOK_URL = "https://www.facebook.com/Nevin.michael.28";
 export const SITE_INSTAGRAM_URL = "https://www.instagram.com/infernal_encipherer";
 export const SITE_LINKEDIN_URL = "https://www.linkedin.com/in/nevin-michael-24716a231";
 
+export const authorName = "Nevin Michael";
+
+export const SITE_KEYWORDS = [
+  `${authorName}`, "Software Engineer", "React Developer", "Next.js Developer", "Full Stack Developer", 
+  "Mendix Developer", "TypeScript Developer", "JavaScript Developer", "Web Developer", "Web Development", "Tech Enthusiast", 
+  "Frontend Developer", "Backend Developer", "App Development", "Tech Portfolio", "GitHub", "Personal Website", 
+  "Software Development", "Software Solutions", "Web Apps", "Tech Projects", "Tech Stack", "Developer Portfolio",
+  "Developer Journey", "Software Engineering", "React Projects", "Full Stack Projects", "Next.js Projects", 
+  "TypeScript Projects", "App Development Projects", "Open Source Projects", "Tech Expertise"
+];
+
+export const SOCIAL_LINKS = [
+  {
+    href: SITE_GITHUB_URL,
+    title: "GitHub",
+    icon: SiGithub,
+  },
+  {
+    href: SITE_FACEBOOK_URL,
+    title: "Facebook",
+    icon: SiFacebook,
+  },
+  {
+    href: SITE_INSTAGRAM_URL,
+    title: "Instagram",
+    icon: SiInstagram,
+  },
+  {
+    href: SITE_LINKEDIN_URL,
+    title: "LinkedIn",
+    icon: FaLinkedinIn,
+  },
+];
+
 //Home Page
+export const homePage = {
+  title: "Nevin Michael's Portfolio",
+  description: "Nevin Michael's Portfolio Website Home Page",
+  metaTitle: `Meet ${authorName} - Building the Future with Modern Technology`,
+  metaDesc: `${authorName} is a Software Engineer with a drive for creating impactful, scalable solutions across platforms using the latest in modern technology and development tools.`,
+  metaKeywords: [
+    "Software Engineer", "Digital Solutions", "Web Development", "Modern Technologies", 
+    "React", "Next.js", "TypeScript", "JavaScript", "Frontend Developer", "Tech Enthusiast", 
+    "Portfolio", "Web Apps", "India Developer", "GitHub", "Personal Website"
+  ],
+};
+
 export const ABOUTME = {
   aboutMe: "About Me",
   knowMore: "Know more about me",
@@ -21,7 +69,7 @@ export const contactInfo = {
 };
 
 export const introText = {
-  greeting: "I'm Nevin Michael, a Software Engineer",
+  greeting: `I'm ${authorName}, a Software Engineer`,
   building: "building",
   websitesUsing: "websites using",
   modernTech: "modern technologies",
@@ -29,7 +77,7 @@ export const introText = {
 };
 
 export const techTags: TechTags = {
-  author: "Nevin Michael",
+  author: "Nevin", // First name only
   label: "Next.js",
   label2: "React.js",
   label3: "TypeScript",
@@ -39,41 +87,23 @@ export const techTags: TechTags = {
 //About Page
 export const aboutPage = {
   title: "About",
-  description: "Hi there! I am Nevin Michael, a Software Engineer who loves to solve problems using modern technologies.",
+  description: `Hi there! I am ${authorName}, a Software Engineer who loves to solve problems using modern technologies.`,
+  metaTitle: `Get to Know ${authorName} - Passionate Software Engineer & Tech Enthusiast`,
+  metaDesc: `Explore ${authorName}'s background, skills, and mindset. Learn how his love for technology, creativity, and problem-solving defines his journey as a software engineer.`,
+  metaKeywords: [
+    "Software Engineer", `About ${authorName}`, "Tech Professional", "Web Developer", 
+    "Tech Enthusiast", "React.js", "Next.js", "Full Stack Developer", "Software Development", 
+    "Creative Thinker", "Problem Solver", "Team Player", "Software Solutions", "Developer Journey"
+  ],
 };
 
 export const whoAmIData = {
   bio: {
     role: "Software Engineer",
-    birthDate: "2001-10-28", //yyyy-mm-dd
+    birthDate: "2001-10-28", //yyyy-mm-dd format strictly
     description: "I'm passionate about building cutting-edge applications that solve real-world problems. With a blend of technical expertise, creative thinking, and a constant hunger for learning, I develop solutions that are not only functional but also impactful.",
   },
-  skills: [
-    "React.js",
-    "Next.js",
-    "Spring Boot",
-    "Mendix",
-    "PostgreSQL",
-    "MySQL",
-    "TypeScript",
-    "JavaScript",
-    "HTML",
-    "CSS",
-    "Tailwind",
-    "Bootstrap",
-    "Git",
-    "GitHub",
-    "DigitalOcean",
-    "Linux",
-    "Power Automate",
-    "Watson Orchestrate",
-    "Zustand",
-    "VS Code",
-    "IntelliJ",
-    "STS",
-    "Canva",
-    "Photoshop",
-  ],
+  skills: ["React.js", "Next.js", "Spring Boot", "Mendix", "PostgreSQL", "MySQL", "TypeScript", "JavaScript", "HTML", "CSS", "Tailwind", "Bootstrap", "Git", "GitHub", "DigitalOcean", "Linux", "Power Automate", "Watson Orchestrate", "Zustand", "VS Code", "IntelliJ", "STS", "Canva", "Photoshop"],
   whyMe: [
     {
       id: 1,
@@ -103,6 +133,13 @@ export const whoAmIData = {
 export const certPage = {
   title: "Certificates",
   description: "Check out some of the certifications I have earned.",
+  metaTitle: `${authorName}'s Certifications & Achievements`,
+  metaDesc: `Explore the professional certifications of ${authorName}, highlighting his expertise and commitment to mastering modern software technologies.`,
+  metaKeywords: [
+    `${authorName} Projects`, "Software Engineering Projects", "Web Development Projects", 
+    "React Projects", "Next.js Projects", "TypeScript Projects", "GitHub Portfolio", "Tech Projects", 
+    "Full Stack Development", "Open Source Projects", "Software Solutions", "App Development"
+  ],  
 };
 
 export const certificates: Certificate[] = [
@@ -168,6 +205,13 @@ export const certificates: Certificate[] = [
 export const journeyPage = {
   title: "Journey",
   description: "Explore my experiences and learning path that shaped my career in software development.",
+  metaTitle: `${authorName}'s Career & Education Timeline`,
+  metaDesc: `Trace the growth of Software Engineer ${authorName} through his academic milestones and industry experience in software development and innovation.`,
+  metaKeywords: [
+    `${authorName} Journey`, "Software Engineer Career", "Developer Education", "Tech Career Path", 
+    "Software Engineer Experience", "Developer Timeline", "Tech Education", "Professional Development", 
+    "Tech Experience", "Software Engineering Journey", "Tech Milestones", "Career Timeline", "Industry Experience"
+  ],  
 };
 
 export const experiences: Experience[] = [
@@ -216,9 +260,16 @@ export const education: Education[] = [
 ];
 
 //Projects Page
-export const ProjectPage = {
+export const projectPage = {
   title: "Projects",
   description: "Check out some of the projects I've worked on.",
+  metaTitle: `${authorName}'s Project Portfolio`,
+  metaDesc: `Browse through ${authorName}'s latest development projects, featuring modern tech stacks like React, Next.js, TypeScript, Spring Boot, and Tailwind CSS. Built to be performant, scalable, and visually stunning.`,
+  metaKeywords: [
+    `${authorName} Projects`, "Software Engineering Projects", "Web Development Projects", 
+    "React Projects", "Next.js Projects", "TypeScript Projects", "GitHub Portfolio", "Tech Projects", 
+    "Full Stack Development", "Open Source Projects", "Software Solutions", "App Development"
+  ],
 };
 
 export const projects: Project[] = [
@@ -275,9 +326,16 @@ export const projects: Project[] = [
 ]
 
 //Tech Page
-export const TechPage = {
+export const techPage = {
   title: "Tech",
   description: "Check out some of the technologies and tools i am using",
+  metaTitle: `${authorName}'s Tech Stack`,
+  metaDesc: `Browse through ${authorName}'s latest development projects, featuring modern tech stacks like React, Next.js, TypeScript, Spring Boot, and Tailwind CSS. Built to be performant, scalable, and visually stunning.`,
+  metaKeywords: [
+    "Tech Stacks", "Tools I Use", "React.js", "Next.js", "TypeScript", "JavaScript", "Spring Boot", "Mendix", 
+    "MySQL", "PostgreSQL", "Tailwind CSS", "Zustand", "GitHub", "DigitalOcean", "Linux", "VS Code", 
+    "Tech Stack Portfolio", "Development Tools", "Frontend Tech", "Backend Tech", "Mendix", "Power Automate"
+  ],  
 };
 
 export const stackGroups = [
@@ -432,3 +490,28 @@ export const stackGroups = [
     ],
   },
 ];
+
+//Coming Soon Page
+export const comingSoon = {
+  title: "Coming soon",
+  description: "The page you are viewing is under construction",
+  metaTitle: `Coming soon`,
+  metaDesc: `The page you are viewing is under construction`,
+  metaKeywords: [
+    "Coming Soon", "Under Construction"
+  ],  
+};
+
+// Default Metadata
+export const metadataValues = {
+  description: `I'm ${authorName}, a passionate software engineer specializing in building innovative digital solutions using modern technologies like React, Next.js, and TypeScript.`,
+  openGraph: {
+    description: `Explore the portfolio of ${authorName} — a Software Engineer creating impactful projects, sharing his career journey, and more. Dive into his work with cutting-edge technologies.`,
+    imagePath: "/images/logo/share.png",
+    imageType: "image/png",
+  },
+  twitter: {
+    description: "Software engineer crafting seamless digital experiences with Next.js, React, TypeScript, and more.",
+    imagePath: `/images/logo/share.png`,
+  },
+};

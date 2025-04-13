@@ -1,23 +1,5 @@
-import {
-  SiFacebook,
-  SiGithub,
-  SiInstagram,
-} from "@icons-pack/react-simple-icons";
-import {
-  BarChartIcon,
-  FlameIcon,
-  MessageCircleIcon,
-  MonitorIcon,
-  PencilIcon,
-} from "lucide-react";
-import { FaLinkedinIn } from "react-icons/fa";
-
-import {
-  SITE_FACEBOOK_URL,
-  SITE_GITHUB_URL,
-  SITE_INSTAGRAM_URL,
-  SITE_LINKEDIN_URL,
-} from "@/lib/constants";
+import { BarChartIcon, FlameIcon, MessageCircleIcon, MonitorIcon, PencilIcon } from "lucide-react";
+import { SOCIAL_LINKS } from "@/lib/constants";
 
 export const HEADER_LINKS = [
   {
@@ -66,34 +48,9 @@ export const FOOTER_LINKS = [
   },
   {
     id: 3,
-    links: [
-      { href: SITE_FACEBOOK_URL, key: "Facebook" },
-      { href: SITE_INSTAGRAM_URL, key: "Instagram" },
-      { href: SITE_GITHUB_URL, key: "Github" },
-      { href: SITE_LINKEDIN_URL, key: "Linkedin" },
-    ],
+    links: SOCIAL_LINKS.map((link) => ({
+      href: link.href,
+      key: link.title,
+    })),
   },
 ] as const;
-
-export const SOCIAL_LINKS = [
-  {
-    href: SITE_GITHUB_URL,
-    title: "GitHub",
-    icon: SiGithub,
-  },
-  {
-    href: SITE_FACEBOOK_URL,
-    title: "Facebook",
-    icon: SiFacebook,
-  },
-  {
-    href: SITE_INSTAGRAM_URL,
-    title: "Instagram",
-    icon: SiInstagram,
-  },
-  {
-    href: SITE_LINKEDIN_URL,
-    title: "LinkedIn",
-    icon: FaLinkedinIn,
-  },
-];
