@@ -2,7 +2,9 @@ import { SiFacebook, SiGithub, SiInstagram } from "@icons-pack/react-simple-icon
 import { FaLinkedinIn } from "react-icons/fa";
 
 export const isProduction = process.env.NODE_ENV === "production";
-export const SITE_URL = isProduction ? "https://nevinm.netlify.app" : "http://localhost:3000";
+const PORT = process.env.PORT ?? 3000;
+export const SITE_URL = isProduction ? "https://nevin.vercel.app" : `http://localhost:${PORT}`;
+
 export const GITHUB_USERNAME = "NevinMichael10";
 export const SITE_NAME = "Nevin Michael";
 export const SITE_GITHUB_URL = "https://github.com/NevinMichael10";
