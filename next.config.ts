@@ -21,10 +21,10 @@ const securityHeaders = [
   //     worker-src blob: 'self';
   //   `.replace(/\s{2,}/g, " ").trim(),
   // },
-  // {
-  //   key: "Referrer-Policy",
-  //   value: "strict-origin-when-cross-origin",
-  // },
+  {
+    key: "Referrer-Policy",
+    value: "strict-origin-when-cross-origin",
+  },
   // {
   //   key: "X-Content-Type-Options",
   //   value: "nosniff",
@@ -33,10 +33,10 @@ const securityHeaders = [
   //   key: "X-Frame-Options",
   //   value: "DENY",
   // },
-  {
-    key: "X-XSS-Protection",
-    value: "1; mode=block",
-  },
+  // {
+  //   key: "X-XSS-Protection",
+  //   value: "1; mode=block",
+  // },
   // {
   //   key: "Permissions-Policy",
   //   value: "camera=(), microphone=(), geolocation=()",

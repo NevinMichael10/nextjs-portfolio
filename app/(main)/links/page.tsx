@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import MainLayout from "@/components/layout/main-layout";
 import ComingSoon from "@/components/coming-soon/coming-soon";
 import { defaultMetadata } from "@/lib/metadata.config";
 import { comingSoon, SITE_URL } from "@/lib/constants";
@@ -24,8 +23,6 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <MainLayout>
-      <ComingSoon />
-    </MainLayout>
+    <ComingSoon />
   );
 };
