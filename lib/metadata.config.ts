@@ -13,6 +13,9 @@ export const defaultMetadata: Metadata = {
   description: metadataValues.description,
   keywords: SITE_KEYWORDS,
   creator: authorName,
+  verification: {
+    google: metadataValues.verification.google,
+  },
   robots: {
     index: true,
     follow: true,

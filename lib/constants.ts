@@ -518,4 +518,7 @@ export const metadataValues = {
     description: "Software engineer crafting seamless digital experiences with Next.js, React, TypeScript, and more.",
     imagePath: `/images/logo/share.png`,
   },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+  },
 };
