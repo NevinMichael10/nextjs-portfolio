@@ -1,7 +1,7 @@
-"use client"
-import { AnimatePresence, motion } from "motion/react"
-import { useEffect, useState } from "react"
-import { BlurImage } from "../ui/blur-image"
+"use client";
+import { AnimatePresence, motion } from "motion/react";
+import { useEffect, useState } from "react";
+import { BlurImage } from "../ui/blur-image";
 import { introText } from "@/lib/constants";
 
 const TEXTS = [
@@ -27,16 +27,31 @@ const SPEED = 2;
 
 const variants = {
   enter: {
-    y: 100,
     opacity: 0,
+    y: 25,
+    scale: 1,
+    transition: {
+      duration: 0.4,
+      ease: "easeIn",
+    },
   },
   center: {
-    y: 0,
     opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.4,
+      ease: "easeOut",
+    },
   },
   exit: {
-    y: -100,
     opacity: 0,
+    y: -25,
+    scale: 1,
+    transition: {
+      duration: 0.4,
+      ease: "easeOut",
+    },
   },
 };
 
@@ -59,64 +74,41 @@ const Hero = () => {
     <div className="my-16 space-y-6">
       <div className="flex justify-between gap-8">
         <div className="flex flex-col gap-4">
-          <h1 className="flex flex-col flex-wrap gap-2 text-xl font-bold sm:text-3xl">
-            <motion.div
-              initial={{ x: 20, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ ease: "easeOut" }}
-            >
-              {introText.greeting}
-            </motion.div>
-            <motion.div
-              initial={{ x: 30, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ ease: "easeOut" }}
-              className="flex gap-2"
-            >
-              <motion.div
-                layout
-                key="title-middle-left"
-                className="leading-[30px] sm:leading-[45px]"
-              >
-                {introText.building}
-              </motion.div>
-              <div className="relative overflow-hidden">
-                <AnimatePresence mode="popLayout">
-                  <motion.div
-                    key={currentIndex}
-                    variants={variants}
-                    initial="enter"
-                    animate="center"
-                    exit="exit"
-                    layout
-                    transition={{
-                      type: "tween",
-                      duration: 0.3,
-                    }}
-                    className="inline-flex items-center justify-center leading-[30px] sm:leading-[45px]"
-                  >
-                    <span className={textItem.className}>{textItem.key}</span>
-                  </motion.div>
-                </AnimatePresence>
-              </div>
-              <motion.div
-                layout
-                key="title-middle-right"
-                className="leading-[30px] sm:leading-[45px]"
-              >
-                {introText.websitesUsing}
-              </motion.div>
-            </motion.div>
+          <h1 className="text-xl sm:text-3xl font-bold leading-[30px] sm:leading-[45px] max-w-full sm:max-w-[36.625rem]">
             <motion.div
               initial={{ x: 40, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ ease: "easeOut" }}
             >
-              {introText.modernTech}
+              <span className="inline">
+                <span className="inline break-words">{introText.greetingLeft}</span>{" "}
+                <span className="relative inline-flex">
+                  <AnimatePresence mode="popLayout">
+                    <motion.span
+                      key={currentIndex}
+                      variants={variants}
+                      initial="enter"
+                      animate="center"
+                      exit="exit"
+                      layout
+                      transition={{ type: "tween", duration: 0.3 }}
+                      className="inline-flex"
+                    >
+                      <span
+                        className={`${textItem.className} break-words sm:break-keep text-balance`}
+                      >
+                        {textItem.key}
+                      </span>
+                    </motion.span>
+                  </AnimatePresence>
+                </span>{" "}
+                <span className="inline break-words">{introText.greetingRight}</span>
+              </span>
             </motion.div>
           </h1>
+
           <motion.div
-            initial={{ x: 50, opacity: 0 }}
+            initial={{ x: 60, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ ease: "easeOut" }}
             className="text-muted-foreground text-sm"
@@ -138,17 +130,17 @@ const Hero = () => {
         >
           <BlurImage
             src={introText.imagePath}
-            className='rounded-full'
+            className="rounded-full"
             width={112}
             height={112}
-            alt='Nevin'
+            alt="Nevin"
             lazy={false}
           />
           <div className="bg-linear-to-tl absolute inset-0 -z-10 from-purple-700 to-orange-700 opacity-50 blur-2xl" />
         </motion.div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

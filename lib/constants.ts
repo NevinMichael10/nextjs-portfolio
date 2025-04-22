@@ -77,10 +77,8 @@ export const contactInfo = {
 };
 
 export const introText = {
-  greeting: `I'm ${authorName}, a Software Engineer`,
-  building: "building",
-  websitesUsing: "websites using",
-  modernTech: "modern technologies",
+  greetingLeft: `I'm ${authorName}, a Software Engineer building`,
+  greetingRight: "websites using modern technologies",
   location: "India • UTC/GMT +5:30",
   imagePath: "/images/logo/nlogo-black-bg.svg",
 };
