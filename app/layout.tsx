@@ -5,6 +5,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/providers/provider";
 import { cn } from "@/lib/utils";
 import { defaultMetadata } from "@/lib/metadata.config";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
   ...defaultMetadata,
@@ -26,6 +27,7 @@ export default function RootLayout({children}: Readonly<{children: React.ReactNo
         >
           {children}
         </ThemeProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
