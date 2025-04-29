@@ -3,5 +3,5 @@ type Experience = {
   title: string;
   organization: string;
   date: string;
-  description?: string;
+  description?: string[];
 };

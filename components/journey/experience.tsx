@@ -47,7 +47,7 @@ const Experience = () => {
                 <span className="relative z-10 flex w-3 h-3 items-center justify-center rounded-full bg-blue-400 dark:bg-anchor"></span>
               </span>
               <motion.span
-                className="ml-4 -m-1 flex min-w-0 flex-col overflow-hidden"
+                className="ml-4 -m-1 flex gap-1 min-w-0 flex-col overflow-hidden"
                 initial={{
                   x: 30,
                   opacity: 0,
@@ -76,9 +76,21 @@ const Experience = () => {
                 >
                   {item.title}
                 </motion.h3>
-                <p className="">{item.organization}</p>
-                <p className="">{item.date}</p>
-                {item.description && <p className="">{item.description}</p>}
+                <p className="font-semibold text-[#5f5f5f] dark:text-[#d4d4d4]">
+                  {item.organization}
+                </p>
+                <div className="rounded-md border bg-zinc-50 px-1.5 py-0.5 text-base dark:bg-zinc-900 w-fit">
+                  <p className="font-medium text-sm text-muted-foreground dark:text-white">
+                    {item.date}
+                  </p>
+                </div>
+                {item.description && item.description.length > 0 && (
+                  <ul className="list-disc pl-4 text-muted-foreground">
+                    {item.description.map((line, idx) => (
+                      <li key={idx}>{line}</li>
+                    ))}
+                  </ul>
+                )}
               </motion.span>
             </div>
           </li>
