@@ -53,6 +53,9 @@ importers:
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      rate-limiter-flexible:
+        specifier: ^7.1.0
+        version: 7.1.0
       react:
         specifier: ^19.1.0
         version: 19.1.0
@@ -82,7 +85,7 @@ importers:
         specifier: ^4.1.4
         version: 4.1.4
       '@types/node':
-        specifier: ^22.15.3
+        specifier: ^22.14.0
         version: 22.15.3
       '@types/react':
         specifier: ^19.1.2
@@ -2961,6 +2964,9 @@ packages:
   range-parser@1.2.1:
     resolution: {integrity: sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg==}
     engines: {node: '>= 0.6'}
+
+  rate-limiter-flexible@7.1.0:
+    resolution: {integrity: sha512-qXYzKWzlTOf7/BNjz1Jj03AgtTHoJZZAiiJ3hjLf8sqeG+EWZLeQ3xYtMPlMZLonlq+OyJUueHyK/H+q2Zc7Qw==}
 
   react-devtools-core@6.1.1:
     resolution: {integrity: sha512-TFo1MEnkqE6hzAbaztnyR5uLTMoz6wnEWwWBsCUzNt+sVXJycuRJdDqvL078M4/h65BI/YO5XWTaxZDWVsW0fw==}
@@ -6742,6 +6748,8 @@ snapshots:
       inherits: 2.0.4
 
   range-parser@1.2.1: {}
+
+  rate-limiter-flexible@7.1.0: {}
 
   react-devtools-core@6.1.1:
     dependencies:
