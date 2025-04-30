@@ -50,8 +50,8 @@ export const defaultMetadata: Metadata = {
     images: [`${SITE_URL}${metadataValues.twitter.imagePath}`],
   },
   icons: {
-    icon: "/favicon/favicon.svg", // Main favicon path
-    shortcut: "/favicon/favicon.svg", // For shortcut icon
+    icon: "/favicon/favicon.ico", // Main favicon path
+    shortcut: "/favicon/favicon.ico", // For shortcut icon
     apple: [
       {
         url: "/favicon/apple-touch-icon.png",
