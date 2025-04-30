@@ -44,7 +44,6 @@ export async function GET(req: Request) {
     }
 
     const data = await res.json();
-    console.log("WakaTime response:", data);
     return NextResponse.json({ WakaTimeResponse: data, errorMsg: null });
   } catch {
     return NextResponse.json(
