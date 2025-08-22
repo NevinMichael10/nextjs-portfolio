@@ -1,5 +1,5 @@
 "use client";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, easeIn, easeOut, Variants } from "motion/react";
 import { useEffect, useState } from "react";
 import { BlurImage } from "../ui/blur-image";
 import { introText } from "@/lib/constants";
@@ -25,14 +25,14 @@ const TEXTS = [
 
 const SPEED = 2;
 
-const variants = {
+const variants: Variants = {
   enter: {
     opacity: 0,
     y: 25,
     scale: 1,
     transition: {
       duration: 0.4,
-      ease: "easeIn",
+      ease: easeIn,
     },
   },
   center: {
@@ -41,7 +41,7 @@ const variants = {
     scale: 1,
     transition: {
       duration: 0.4,
-      ease: "easeOut",
+      ease: easeOut,
     },
   },
   exit: {
@@ -50,7 +50,7 @@ const variants = {
     scale: 1,
     transition: {
       duration: 0.4,
-      ease: "easeOut",
+      ease: easeOut,
     },
   },
 };
