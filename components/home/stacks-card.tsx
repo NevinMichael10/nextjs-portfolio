@@ -1,6 +1,6 @@
 "use client"
 import Marquee from "react-fast-marquee"
-import { SiCloudflare, SiCss3, SiFigma, SiFirebase, SiGit, SiHtml5, SiJavascript, SiMarkdown, SiMysql, SiNextdotjs, SiNodedotjs, SiPostgresql, SiSpringboot, SiPython, SiRadixui, SiReact, SiTailwindcss, SiTypescript, SiVite, SiVitest,SiBootstrap, SiDigitalocean } from "@icons-pack/react-simple-icons"
+import { SiCloudflare, SiCss, SiFigma, SiFirebase, SiGit, SiHtml5, SiJavascript, SiMarkdown, SiMysql, SiNextdotjs, SiNodedotjs, SiPostgresql, SiSpringboot, SiPython, SiRadixui, SiReact, SiTailwindcss, SiTypescript, SiVite, SiVitest,SiBootstrap, SiDigitalocean } from "@icons-pack/react-simple-icons"
 import { ZapIcon } from "lucide-react"
 
 const StacksCard = () => {
@@ -13,7 +13,7 @@ const StacksCard = () => {
       <Marquee pauseOnHover speed={25} className="py-4">
         <div className="flex gap-4 pl-4">
           <SiHtml5 className="size-10" />
-          <SiCss3 className="size-10" />
+          <SiCss className="size-10" />
           <SiJavascript className="size-10" />
           <SiTypescript className="size-10" />
           <SiFigma className="size-10" />
