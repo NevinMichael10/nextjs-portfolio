@@ -2,7 +2,7 @@
 import createGlobe from "cobe"
 import { MapPinIcon } from "lucide-react"
 import { useEffect, useRef } from "react"
-import { useSpring } from "react-spring"
+import { useSpring } from "@react-spring/web"
 
 const LocationCard = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
