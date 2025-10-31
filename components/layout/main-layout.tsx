@@ -25,8 +25,9 @@ const MainLayout = ({ children }: MainLayoutProps) => {
         height={550}
         className="absolute left-1/2 top-0 -z-10 -translate-x-1/2 w-full h-auto"
         src="/images/layout-bg/gradient-background-top.png"
-        alt=""
-        priority
+        alt="header background"
+        priority={true}
+        fetchPriority="high"
       />
 
       {/* Background image for the footer */}
@@ -36,8 +37,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
         height={447}
         className="absolute left-1/2 -z-10 -translate-x-1/2 w-full h-auto"
         src="/images/layout-bg/gradient-background-bottom.png"
-        alt=""
-        priority
+        alt="footer background"
         style={{ bottom: 0 }}
       />
     </div>
