@@ -15,8 +15,7 @@ const CodingHours = () => {
         } else {
           setTime(json.WakaTimeResponse?.data?.text ?? "Unavailable");
         }
-      } catch (err) {
-        console.error("Failed to fetch coding time from WakaTime:", err);
+      } catch {
         setTime("Unavailable");
       }
     };

@@ -81,7 +81,7 @@ const Hero = () => {
               transition={{ ease: "easeOut" }}
             >
               <span className="inline">
-                <span className="inline break-words">{introText.greetingLeft}</span>{" "}
+                <span className="inline wrap-break-word">{introText.greetingLeft}</span>{" "}
                 <span className="relative inline-flex">
                   <AnimatePresence mode="popLayout">
                     <motion.span
@@ -95,14 +95,14 @@ const Hero = () => {
                       className="inline-flex"
                     >
                       <span
-                        className={`${textItem.className} break-words sm:break-keep text-balance`}
+                        className={`${textItem.className} wrap-break-word sm:break-keep text-balance`}
                       >
                         {textItem.key}
                       </span>
                     </motion.span>
                   </AnimatePresence>
                 </span>{" "}
-                <span className="inline break-words">{introText.greetingRight}</span>
+                <span className="inline wrap-break-word">{introText.greetingRight}</span>
               </span>
             </motion.div>
           </h1>
@@ -135,6 +135,8 @@ const Hero = () => {
             height={112}
             alt="Nevin"
             lazy={false}
+            priority={true}
+            fetchPriority="high"
           />
           <div className="bg-linear-to-tl absolute inset-0 -z-10 from-purple-700 to-orange-700 opacity-50 blur-2xl" />
         </motion.div>

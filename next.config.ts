@@ -56,8 +56,12 @@ const nextConfig: NextConfig = {
     ];
   },
   images: {
-    qualities: [100, 70, 75],
+    formats: ["image/avif", "image/webp"],
+    qualities: [25, 50, 75, 100],
+    minimumCacheTTL: 60 * 60 * 24 * 7, // 1 week caching
   },
+  compress: true,
+  poweredByHeader: false,
 };
 
 export default nextConfig;
