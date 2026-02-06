@@ -21,7 +21,9 @@ const GetInTouch = () => {
   const isInView = useInView(cardsRef, { once: true, margin: "-100px" });
 
   useEffect(() => {
-    animate(
+    if (!isInView) return;
+
+    const controls = animate(
       [
         ["#pointer", { left: 200, top: 60 }, { duration: 0 }],
         ["#javascript", { opacity: 1 }, { duration: 0.3 }],
@@ -38,10 +40,12 @@ const GetInTouch = () => {
         ["#next-js", { opacity: 0.4 }, { at: "-0.3", duration: 0.1 }],
       ],
       {
-        repeat: Number.POSITIVE_INFINITY,
+        repeat: Infinity,
       }
     );
-  }, [animate])
+
+    return () => controls.stop();
+  }, [animate, isInView]);
 
   return (
     <motion.div

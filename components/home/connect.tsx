@@ -6,7 +6,7 @@ const Connect = () => {
   return (
     <div className="shadow-feature-card flex flex-col gap-6 rounded-xl p-4 lg:p-6">
       <div className="flex items-center gap-2">
-        <LinkIcon className="size-[18px]" />
+        <LinkIcon className="size-4.5" />
         <h2 className="text-sm">{"Connect"}</h2>
       </div>
       <div className="flex flex-col gap-4 px-2">
@@ -20,7 +20,7 @@ const Connect = () => {
               href={href}
               className="text-muted-foreground hover:text-foreground flex w-fit items-center gap-3 transition-colors"
             >
-              <Icon className="size-[18px]" />
+              <Icon className="size-4.5" />
               <h3>{title}</h3>
             </Link>
           )

@@ -10,28 +10,28 @@ import MobileNav from './mobile-nav'
 import { cn } from '@/lib/utils'
 import { layoutUI } from '@/lib/constants'
 
+const SCROLL_THRESHOLD = 100
+
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
-    const changeBackground = () => {
-      if (window.scrollY > 100) {
-        setIsScrolled(true)
-      } else {
-        setIsScrolled(false)
-      }
+    const onScroll = () => {
+      const scrolled = window.scrollY > SCROLL_THRESHOLD
+      setIsScrolled(prev => (prev === scrolled ? prev : scrolled))
     }
 
-    document.addEventListener('scroll', changeBackground)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
 
-    return () => document.removeEventListener('scroll', changeBackground)
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
     <motion.header
       layoutId="header"
       className={cn(
-        'bg-background/30 shadow-xs fixed inset-x-0 top-4 z-40 mx-auto flex h-[60px] max-w-5xl items-center justify-between rounded-2xl px-8 saturate-100 backdrop-blur-[10px] transition-colors',
+        'bg-background/30 shadow-xs fixed inset-x-0 top-4 z-40 mx-auto flex h-15 max-w-5xl items-center justify-between rounded-2xl px-8 saturate-100 backdrop-blur-[10px] transition-colors',
         isScrolled && 'bg-background/80'
       )}
       initial={{

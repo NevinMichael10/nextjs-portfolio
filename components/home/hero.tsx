@@ -59,10 +59,9 @@ const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(
-      () => setCurrentIndex((prev) => (prev + 1) % TEXTS.length),
-      SPEED * 1000
-    );
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % TEXTS.length);
+    }, SPEED * 1000);
 
     return () => clearInterval(timer);
   }, []);
@@ -74,7 +73,7 @@ const Hero = () => {
     <div className="my-16 space-y-6">
       <div className="flex justify-between gap-8">
         <div className="flex flex-col gap-4">
-          <h1 className="text-xl sm:text-3xl font-bold leading-[30px] sm:leading-[45px] max-w-full sm:max-w-[36.625rem]">
+          <h1 className="text-xl sm:text-3xl font-bold leading-7.5 sm:leading-11.25 max-w-full sm:max-w-146.5">
             <motion.div
               initial={{ x: 40, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
@@ -83,7 +82,7 @@ const Hero = () => {
               <span className="inline">
                 <span className="inline wrap-break-word">{introText.greetingLeft}</span>{" "}
                 <span className="relative inline-flex">
-                  <AnimatePresence mode="popLayout">
+                  <AnimatePresence mode="popLayout" initial={false}>
                     <motion.span
                       key={currentIndex}
                       variants={variants}

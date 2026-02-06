@@ -31,21 +31,21 @@ const ThemeSwitcher = () => {
           onClick={() => setTheme('light')}
           data-testid='theme-light-button'
         >
-          <SunIcon className='size-[18px]' /> {"Light"}
+          <SunIcon className='size-4.5' /> {"Light"}
         </DropdownMenuItem>
         <DropdownMenuItem
           className='gap-2'
           onClick={() => setTheme('dark')}
           data-testid='theme-dark-button'
         >
-          <MoonIcon className='size-[18px]' /> {"Dark"}
+          <MoonIcon className='size-4.5' /> {"Dark"}
         </DropdownMenuItem>
         <DropdownMenuItem
           className='gap-2'
           onClick={() => setTheme('system')}
           data-testid='theme-system-button'
         >
-          <MonitorIcon className='size-[18px]' /> {"System"}
+          <MonitorIcon className='size-4.5' /> {"System"}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
