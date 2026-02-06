@@ -8,18 +8,13 @@ const rateLimiter = new RateLimiterMemory({
   duration: 60, // per 60 seconds
 });
 
-// --- Simple in-memory cache ---
-let cachedData: any = null;
-let cacheTimestamp = 0;
-const CACHE_TTL = 10 * 60 * 1000; // 10 minutes
-
 export async function GET(req: Request) {
-  const ip = getIp(req.headers);
+  const ip = getIp(req.headers) || "global";
 
   if (!process.env.WAKATIME_API_KEY || process.env.WAKATIME_API_KEY.trim() === "") {
     return NextResponse.json(
       { WakaTimeResponse: null, errorMsg: "Counting" },
-      { status: 500 }
+      { status: 200 }
     );
   }
 
@@ -32,16 +27,6 @@ export async function GET(req: Request) {
     );
   }
 
-  // --- Return cached data if valid ---
-  const now = Date.now();
-  if (cachedData && now - cacheTimestamp < CACHE_TTL) {
-    return NextResponse.json({
-      WakaTimeResponse: cachedData,
-      errorMsg: null,
-      cached: true,
-    });
-  }
-
   const auth = Buffer.from(process.env.WAKATIME_API_KEY).toString("base64");
 
   try {
@@ -49,23 +34,19 @@ export async function GET(req: Request) {
       headers: {
         Authorization: `Basic ${auth}`,
       },
-      cache: "no-store", // Avoid Next.js built-in caching
+      next: { revalidate: 600 }, // Server-side caching (10 mins)
     });
 
     if (!res.ok) {
       return NextResponse.json(
         { WakaTimeResponse: null, errorMsg: "Failed to fetch" },
-        { status: 500 }
+        { status: 502 }
       );
     }
 
     const data = await res.json();
 
-    // --- Store in cache ---
-    cachedData = data;
-    cacheTimestamp = now;
-
-    return NextResponse.json({ WakaTimeResponse: data, errorMsg: null, cached: false });
+    return NextResponse.json({ WakaTimeResponse: data, errorMsg: null });
   } catch {
     return NextResponse.json(
       { WakaTimeResponse: null, errorMsg: "Failed to fetch" },
