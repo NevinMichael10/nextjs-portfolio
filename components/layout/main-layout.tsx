@@ -39,6 +39,8 @@ const MainLayout = ({ children }: MainLayoutProps) => {
         src="/images/layout-bg/gradient-background-bottom-compressed.png"
         alt="footer background"
         style={{ bottom: 0 }}
+        priority={true}
+        fetchPriority="high"
       />
     </div>
   );
