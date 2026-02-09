@@ -7,6 +7,9 @@ import { certPage, SITE_URL } from "@/lib/constants";
 export const metadata: Metadata = {
   ...defaultMetadata,
   title: certPage.title,
+  alternates: {
+    canonical: `${SITE_URL}/certs`,
+  },
   description: certPage.metaDesc,
   keywords: [...(defaultMetadata.keywords ?? []), ...certPage.metaKeywords],
   openGraph: {
