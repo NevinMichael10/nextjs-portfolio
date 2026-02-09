@@ -19,13 +19,13 @@ export default function WhoAmI() {
         <h2 className="text-2xl font-bold mt-12">Skills and tools</h2>
         <ul className="mt-6 flex flex-wrap gap-2">
           {whoAmIData.skills.map((skill) => (
-          <span
-            key={skill}
-            className="rounded-full border bg-zinc-50 px-3 py-2 text-xs leading-4 dark:bg-zinc-900"
-          >
-            {skill}
-          </span>
-        ))}
+            <li
+              key={skill}
+              className="rounded-full border bg-zinc-50 px-3 py-2 text-xs leading-4 dark:bg-zinc-900"
+            >
+              {skill}
+            </li>
+          ))}
         </ul>
 
         <h2 className="text-2xl font-bold mt-12">Why me?</h2>
@@ -39,9 +39,9 @@ export default function WhoAmI() {
         <ul className="mt-2 list-disc pl-6 marker:text-green-500">
           {Object.entries(whoAmIData.aboutThisSite).map(([key, value]) => (
             <li key={key}>
-            <span className="font-semibold">{key}:</span>{" "}
-            <span className="text-anchor">{Array.isArray(value) ? value.join(", ") : value}</span>
-          </li>
+              <span className="font-semibold">{key}:</span>{" "}
+              <span className="text-anchor">{Array.isArray(value) ? value.join(", ") : value}</span>
+            </li>
           ))}
         </ul>
       </div>

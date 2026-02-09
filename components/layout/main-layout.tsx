@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
+import GradientBackground from "./gradient-background";
 
 type MainLayoutProps = {
   children: React.ReactNode;
@@ -18,8 +18,9 @@ const MainLayout = ({ children }: MainLayoutProps) => {
       </main>
       <Footer />
 
-      {/* Background image for the header */}
-      <Image
+      {/* Background for the header */}
+      <GradientBackground className='absolute top-0 left-1/2 -z-10 -translate-x-1/2' />
+      {/* <Image
         id="header-img"
         width={1512}
         height={550}
@@ -28,10 +29,11 @@ const MainLayout = ({ children }: MainLayoutProps) => {
         alt="header background"
         priority={true}
         fetchPriority="high"
-      />
+      /> */}
 
-      {/* Background image for the footer */}
-      <Image
+      {/* Background for the footer */}
+      <GradientBackground className='absolute -bottom-6 left-1/2 -z-10 -translate-x-1/2 rotate-180' />
+      {/* <Image
         id="footer-img"
         width={1512}
         height={447}
@@ -41,7 +43,7 @@ const MainLayout = ({ children }: MainLayoutProps) => {
         style={{ bottom: 0 }}
         priority={true}
         fetchPriority="high"
-      />
+      /> */}
     </div>
   );
 };
