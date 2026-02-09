@@ -7,13 +7,16 @@ import { stackGroups, techPage, SITE_URL } from "@/lib/constants";
 export const metadata: Metadata = {
   ...defaultMetadata,
   title: techPage.title,
+  alternates: {
+    canonical: `${SITE_URL}/tech`,
+  },
   description: techPage.metaDesc,
   keywords: [...(defaultMetadata.keywords ?? []), ...techPage.metaKeywords],
   openGraph: {
     ...defaultMetadata.openGraph,
     title: techPage.metaTitle,
     description: techPage.metaDesc,
-    url: `${SITE_URL}/journey`,
+    url: `${SITE_URL}/tech`,
   },
   twitter: {
     ...defaultMetadata.twitter,

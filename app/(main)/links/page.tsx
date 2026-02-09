@@ -6,6 +6,9 @@ import { comingSoon, SITE_URL } from "@/lib/constants";
 export const metadata: Metadata = {
   ...defaultMetadata,
   title: comingSoon.title,
+  alternates: {
+    canonical: `${SITE_URL}/links`,
+  },
   description: comingSoon.metaDesc,
   keywords: [...(defaultMetadata.keywords ?? []), ...comingSoon.metaKeywords],
   openGraph: {

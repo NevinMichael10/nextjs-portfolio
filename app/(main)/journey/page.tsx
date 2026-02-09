@@ -8,6 +8,9 @@ import { journeyPage, SITE_URL } from "@/lib/constants";
 export const metadata: Metadata = {
   ...defaultMetadata,
   title: journeyPage.title,
+  alternates: {
+    canonical: `${SITE_URL}/journey`,
+  },
   description: journeyPage.metaDesc,
   keywords: [...(defaultMetadata.keywords ?? []), ...journeyPage.metaKeywords],
   openGraph: {

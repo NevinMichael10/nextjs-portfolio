@@ -7,13 +7,16 @@ import { projectPage, SITE_URL } from "@/lib/constants";
 export const metadata: Metadata = {
   ...defaultMetadata,
   title: projectPage.title,
+  alternates: {
+    canonical: `${SITE_URL}/projects`,
+  },
   description: projectPage.metaDesc,
   keywords: [...(defaultMetadata.keywords ?? []), ...projectPage.metaKeywords],
   openGraph: {
     ...defaultMetadata.openGraph,
     title: projectPage.metaTitle,
     description: projectPage.metaDesc,
-    url: `${SITE_URL}/journey`,
+    url: `${SITE_URL}/projects`,
   },
   twitter: {
     ...defaultMetadata.twitter,
