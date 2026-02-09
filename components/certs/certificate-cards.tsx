@@ -26,7 +26,7 @@ const CertificateCard = ({ id, certificateName, description, imgPath, issueDate,
         imageClassName="transition-transform group-hover:scale-105"
         alt={certificateName}
       />
-      <div className="flex items-center justify-between gap-2 px-2 pt-4 text-sm text-zinc-500">
+      <div className="flex items-center justify-between gap-2 px-2 pt-4 text-sm text-zinc-500 dark:text-zinc-400">
         {issueDate}
         <div className="flex gap-2">
           <div>{issuer}</div>
