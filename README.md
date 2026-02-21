@@ -8,6 +8,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 - [Installation](#installation)
 - [Environment Variables](#environment-variables)
 - [Usage](#usage)
+- [Available Scripts](#available-scripts)
 - [Customizing Project Contents](#customizing-project-contents)
 
 ---
@@ -16,12 +17,26 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 This project uses the following versions:
 
-- **Node.js** version: `v22.14.0`
-- **pnpm** version: `10.5.2`
+- **Bun** (latest recommended version)
+- **Node.js** version: `v22.22.0` (Optional)
 
-### Install Node.js & pnpm (if not already installed)
+### Install Bun & Node.js (if not already installed)
 
-👉 **Install Node.js** (Recommended version: `v22.14.0`):
+👉 **Install Bun**:
+
+macOS / Linux
+
+```bash
+curl -fsSL https://bun.sh/install | bash
+```
+
+Windows (PowerShell)
+
+```bash
+powershell -c "irm bun.sh/install.ps1 | iex"
+```
+
+👉 **Install Node.js (Optional)** (Recommended version: `v22.22.0`):
 You can download it directly from [https://nodejs.org](https://nodejs.org).
 
 **OR**
@@ -33,32 +48,26 @@ Use **nvm (Node Version Manager)**:
 Once installed, use:
 
 ```bash
-nvm install 22.14.0
+nvm install 22.22.0
 ```
 
 ```bash
-nvm use 22.14.0
-```
-
-👉 **Install pnpm globally (Recommended version: `10.5.2`)**:
-
-```bash
-npm install -g pnpm@10.5.2
+nvm use 22.22.0
 ```
 
 ✅ **Check versions to confirm:**
 
 ```bash
-node -v
+bun -v
 ```
 
 ```bash
-pnpm -v
+node -v
 ```
 
 ## Installation
 
-To get started, clone the repository and install the necessary packages using pnpm.
+To get started, clone the repository and install the necessary packages using bun.
 
 ### Clone the repository
 
@@ -75,7 +84,7 @@ cd nextjs-portfolio
 ### Install dependencies
 
 ```bash
-pnpm install
+bun install
 ```
 
 ---
@@ -106,7 +115,7 @@ ENABLE_SECURITY_HEADERS=true
 To start the development server, run:
 
 ```bash
-pnpm dev
+bun run dev
 ```
 
 This command will start the application by default on [`http://localhost:3000`](http://localhost:3000).
@@ -116,14 +125,28 @@ This command will start the application by default on [`http://localhost:3000`](
 To build the project for production, use:
 
 ```bash
-pnpm build
+bun run build
 ```
 
 Once built, you can start the server:
 
 ```bash
-pnpm start
+bun run start
 ```
+
+---
+
+## 🚀 Available Scripts
+
+| Action          | Command             | Description                           |
+| :-------------- | :------------------ | :------------------------------------ |
+| **Development** | `bun run dev`       | Start development server with HMR     |
+| **Build**       | `bun run build`     | Build the application for production  |
+| **Production**  | `bun run start`     | Start the production server           |
+| **Lint**        | `bun run lint`      | Run ESLint to check for code issues   |
+| **Lint & Fix**  | `bun run lint:fix`  | Auto-fix repairable ESLint issues     |
+| **Clean**       | `bun run clean`     | Remove `.next` and `.turbo` folders   |
+| **Hard Reset**  | `bun run clean:all` | Remove build files and `node_modules` |
 
 ---
 
@@ -163,22 +186,26 @@ Happy customizing! 🎨✨
 
 ## 🧰 Tech Stack
 
-- **Next.js** 15
-- **React** 19
+- **Next.js** 16 (App Router)
+- **React 19**
+- **Bun** (Runtime & Package Manager)
 - **TypeScript**
 - **Tailwind CSS**
-- **Zustand** – for global state management
+- **Motion** – for fluid animations.
+- **Radix UI** – for accessible UI primitives.
 - **Geist Font** – optimized using [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts)
 
 ---
 
 ## 📚 Learn More
 
-To learn more about Next.js, check out the following resources:
+To learn more about the technologies used in this project, check out the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) – Learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) – Interactive tutorial.
-- [Next.js GitHub Repository](https://github.com/vercel/next.js)
+- [Next.js Documentation](https://nextjs.org/docs) – Learn about Next.js 15/16 features and the App Router.
+- [Bun Documentation](https://bun.sh/docs) – Explore the Bun runtime, package manager, and test runner.
+- [Tailwind CSS v4](https://tailwindcss.com/docs/v4-beta) – Discover the latest features of the utility-first CSS framework.
+- [Motion (formerly Framer Motion)](https://motion.dev/) – Documentation for the animations used in this portfolio.
+- [Next.js GitHub Repository](https://github.com/vercel/next.js) – The official source code for Next.js.
 
 ---
 
