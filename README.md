@@ -136,7 +136,7 @@ bun run start
 
 ---
 
-## 🚀 Available Scripts
+## Available Scripts
 
 | Action          | Command             | Description                           |
 | :-------------- | :------------------ | :------------------------------------ |
