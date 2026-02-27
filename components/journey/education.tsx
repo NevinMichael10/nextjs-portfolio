@@ -58,7 +58,7 @@ const Education = () => {
                 <span className="relative z-10 flex w-3 h-3 items-center justify-center rounded-full bg-blue-400 dark:bg-anchor "></span>
               </span>
               <motion.span
-                className="ml-4 -m-1 flex gap-1 min-w-0 flex-col overflow-hidden"
+                className="ml-4 mt-1 flex gap-1 min-w-0 flex-col overflow-hidden"
                 initial={{
                   x: 30,
                   opacity: 0,
