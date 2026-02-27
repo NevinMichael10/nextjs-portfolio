@@ -50,7 +50,7 @@ const Education = () => {
         {education.map((item, stepIdx) => (
           <li
             key={item.id}
-            className={cn(stepIdx !== education.length - 1 ? "pb-6" : "", "relative")}
+            className={cn(stepIdx !== education.length - 1 ? "pb-6" : "pb-1", "relative")}
           >
             <div className="absolute left-4 -ml-px mt-1 h-full w-[1px] bg-gray-200 dark:bg-border" />
             <div className="group relative flex items-start">
