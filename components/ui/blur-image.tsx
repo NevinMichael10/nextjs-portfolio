@@ -10,7 +10,9 @@ type ImageProps = {
 
 const BlurImage = (props: ImageProps) => {
   const { alt, src, className, imageClassName, lazy = true, ...rest } = props
-  const [isLoading, setIsLoading] = useState(true)
+  // Priority (eager) images skip the blur state entirely so they don't appear
+  // greyed-out while JS hydrates — this is critical for LCP images.
+  const [isLoading, setIsLoading] = useState(lazy)
 
   return (
     <div className={cn('overflow-hidden', isLoading && 'animate-pulse', className)}>

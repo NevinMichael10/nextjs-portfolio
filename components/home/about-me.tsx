@@ -5,15 +5,15 @@ import { useRef } from "react"
 
 import Connect from "./connect"
 import FavoriteFramework from "./favorite-framework"
-import LocationCard from "./location-card"
 import StacksCard from "./stacks-card"
 import { cn } from "@/lib/utils"
 import CodingHours from "./coding-hours"
 import { ABOUTME } from "@/lib/constants"
+import { LocationCard } from "./location-card"
 
 const variants = {
   initial: {
-    y: 40,
+    y: 20,
     opacity: 0,
   },
   animate: {
@@ -24,7 +24,7 @@ const variants = {
 
 const AboutMe = () => {
   const cardsRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(cardsRef, { once: true, margin: "-100px" });
+  const isInView = useInView(cardsRef, { once: true, margin: "0px" });
 
   return (
     <motion.div

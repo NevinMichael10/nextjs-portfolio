@@ -4,11 +4,11 @@ import { motion } from 'motion/react'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Navbar from './navbar'
-import ThemeSwitcher from './theme-switcher'
 import Image from 'next/image'
 import MobileNav from './mobile-nav'
 import { cn } from '@/lib/utils'
 import { layoutUI } from '@/lib/constants'
+import { ThemeSwitcher } from './theme-switcher'
 
 const SCROLL_THRESHOLD = 100
 

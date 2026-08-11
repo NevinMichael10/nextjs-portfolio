@@ -55,6 +55,9 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  experimental: {
+    optimizePackageImports: ["@icons-pack/react-simple-icons", "lucide-react"],
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     qualities: [25, 50, 75, 100],

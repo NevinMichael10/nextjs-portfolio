@@ -1,55 +1,38 @@
-"use client"
-import { Button } from "@/components/ui/button"
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { MonitorIcon, MoonIcon, SunIcon } from 'lucide-react'
+import { MoonIcon, SunIcon } from 'lucide-react'
 import { useTheme } from 'next-themes'
 
-const ThemeSwitcher = () => {
+import { Button } from '@/components/ui/button'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import { THEMES } from '@/lib/constants'
+
+export function ThemeSwitcher() {
   const { setTheme } = useTheme()
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild className="bg-transparent border-transparent hover:border-transparent">
-        <Button
-          variant='ghost'
-          className='size-9 p-0'
-          aria-label={"Toggle Theme"}
-          data-testid='theme-toggle'
-        >
-          <SunIcon className='size-4 dark:hidden' />
-          <MoonIcon className='hidden size-4 dark:block' />
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align='end'>
-        <DropdownMenuItem
-          className='gap-2'
-          onClick={() => setTheme('light')}
-          data-testid='theme-light-button'
-        >
-          <SunIcon className='size-4.5' /> {"Light"}
-        </DropdownMenuItem>
-        <DropdownMenuItem
-          className='gap-2'
-          onClick={() => setTheme('dark')}
-          data-testid='theme-dark-button'
-        >
-          <MoonIcon className='size-4.5' /> {"Dark"}
-        </DropdownMenuItem>
-        <DropdownMenuItem
-          className='gap-2'
-          onClick={() => setTheme('system')}
-          data-testid='theme-system-button'
-        >
-          <MonitorIcon className='size-4.5' /> {"System"}
-        </DropdownMenuItem>
+      <DropdownMenuTrigger
+        render={
+          <Button variant='ghost' size='icon' className="bg-transparent border-transparent hover:border-transparent hover:cursor-pointer" aria-label={'theme-toggle.toggle-theme'} data-testid='theme-toggle'>
+            <SunIcon className='dark:hidden' />
+            <MoonIcon className='hidden dark:block' />
+          </Button>
+        }
+      />
+      <DropdownMenuContent align='end' className='min-w-36 rounded-2xl'>
+        {THEMES.map((theme) => (
+          <DropdownMenuItem
+            className='gap-2 px-3 py-2 rounded-xl hover:cursor-pointer'
+            key={theme.value}
+            onClick={() => {
+              setTheme(theme.value)
+            }}
+            data-testid={`theme-option-${theme.value}`}
+          >
+            {theme.icon}
+            {theme.label}
+          </DropdownMenuItem>
+        ))}
       </DropdownMenuContent>
     </DropdownMenu>
   )
 }
-
-export default ThemeSwitcher

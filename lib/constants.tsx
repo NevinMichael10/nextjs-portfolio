@@ -1,5 +1,6 @@
 import { SiFacebook, SiGithub, SiInstagram } from "@icons-pack/react-simple-icons";
 import { FaLinkedinIn } from "react-icons/fa";
+import { MonitorIcon, MoonIcon, SunIcon } from 'lucide-react'
 
 export const isProduction = process.env.NODE_ENV === "production";
 const PORT = process.env.PORT ?? 3000;
@@ -45,6 +46,12 @@ export const SOCIAL_LINKS = [
     icon: FaLinkedinIn,
   },
 ];
+
+export const THEMES = [
+  { label: 'Light', value: 'light', icon: <SunIcon /> },
+  { label: 'Dark', value: 'dark', icon: <MoonIcon /> },
+  { label: 'System', value: 'system', icon: <MonitorIcon /> },
+] as const
 
 //Layout
 export const layoutUI = {

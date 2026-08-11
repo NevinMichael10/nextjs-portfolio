@@ -1,136 +1,181 @@
-"use client"
-import createGlobe from "cobe"
-import { MapPinIcon } from "lucide-react"
-import { useEffect, useRef } from "react"
-import { useSpring } from "@react-spring/web"
+'use client'
 
-const LocationCard = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const pointerInteracting = useRef<number | null>(null);
-  const pointerInteractionMovement = useRef(0);
-  const fadeMask = "radial-gradient(circle at 50% 50%, rgb(0, 0, 0) 60%, rgb(0, 0, 0, 0) 70%)";
+import type { Globe } from 'cobe'
 
-  const [{ r }, api] = useSpring(() => ({
-    r: 0,
-    config: {
-      mass: 1,
-      tension: 280,
-      friction: 40,
-      precision: 0.001,
-    },
-  }));
+import createGlobe from 'cobe'
+import { MapPinIcon } from 'lucide-react'
+import { useCallback, useEffect, useRef, useState } from 'react'
+
+import { Badge } from '../ui/badge'
+
+const MARKERS = [{ id: 'kochi', location: [9.9312, 76.2673] as [number, number], size: 0.03 }]
+
+function getThemeOptions(isDark: boolean) {
+  return {
+    dark: isDark ? 1 : 0,
+    diffuse: isDark ? 2 : 1.5,
+    mapBrightness: isDark ? 2 : 1.5,
+    baseColor: isDark ? ([0.8, 0.8, 0.8] as [number, number, number]) : ([1, 1, 1] as [number, number, number]),
+    markerColor: isDark ? ([1, 1, 1] as [number, number, number]) : ([0, 0, 0] as [number, number, number]),
+    glowColor: isDark
+      ? ([0.5, 0.5, 0.5] as [number, number, number])
+      : ([0.94, 0.93, 0.91] as [number, number, number]),
+  }
+}
+
+export function LocationCard() {
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const globeRef = useRef<Globe | null>(null)
+  const [ready, setReady] = useState(false)
+  const pointerInteractingRef = useRef<{ x: number; y: number } | null>(null)
+  const dragOffsetRef = useRef({ phi: 0 })
+  const phiOffsetRef = useRef(3.35)
+
+  const handlePointerDown = useCallback((e: React.PointerEvent) => {
+    pointerInteractingRef.current = { x: e.clientX, y: e.clientY }
+    if (canvasRef.current) canvasRef.current.style.cursor = 'grabbing'
+  }, [])
 
   useEffect(() => {
-    let width = 0;
-
-    const onResize = () => {
-      if (canvasRef.current && (width = canvasRef.current.offsetWidth)) {
-        window.addEventListener("resize", onResize);
+    function handlePointerMove(e: PointerEvent) {
+      if (pointerInteractingRef.current !== null) {
+        const deltaX = e.clientX - pointerInteractingRef.current.x
+        dragOffsetRef.current = { phi: deltaX / 300 }
       }
-    };
-    onResize();
+    }
 
-    if (!canvasRef.current) return;
+    function handlePointerUp() {
+      if (pointerInteractingRef.current !== null) {
+        phiOffsetRef.current += dragOffsetRef.current.phi
+        dragOffsetRef.current = { phi: 0 }
+      }
+      pointerInteractingRef.current = null
+      if (canvasRef.current) canvasRef.current.style.cursor = 'grab'
+    }
 
-    const globe = createGlobe(canvasRef.current, {
-      devicePixelRatio: 2,
-      width: width * 2,
-      height: width * 2,
-      phi: 0,
-      theta: 0,
-      dark: 1,
-      diffuse: 2,
-      mapSamples: 12_000,
-      mapBrightness: 2,
-      baseColor: [0.8, 0.8, 0.8],
-      markerColor: [1, 1, 1],
-      glowColor: [0.5, 0.5, 0.5],
-      markers: [{ location: [8.5241, 76.9366], size: 0.15 }],
-      scale: 1.05,
-      onRender: (state) => {
-        state.phi = 3.3 + r.get();
-        state.width = width * 2;
-        state.height = width * 2;
-      },
-    });
+    globalThis.addEventListener('pointermove', handlePointerMove, { passive: true })
+    globalThis.addEventListener('pointerup', handlePointerUp, { passive: true })
 
     return () => {
-      globe.destroy();
-      window.removeEventListener("resize", onResize);
-    };
-  }, [r]);
+      globalThis.removeEventListener('pointermove', handlePointerMove)
+      globalThis.removeEventListener('pointerup', handlePointerUp)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (!canvasRef.current) return
+
+    const canvas = canvasRef.current
+    const width = canvas.offsetWidth
+    
+    // Performance: Cap pixel ratio to avoid GPU overload on ultra-high-res screens
+    const dpr = Math.min(window.devicePixelRatio || 1, 2)
+
+    globeRef.current = createGlobe(canvas, {
+      devicePixelRatio: dpr,
+      width,
+      height: width,
+      phi: phiOffsetRef.current,
+      theta: -0.10,
+      mapSamples: 16_000, // 16,000 is a great balance for performance and visuals
+      markerElevation: 0.01,
+      markers: MARKERS,
+      ...getThemeOptions(false),
+    })
+
+    let animationId = 0
+    let isVisible = false
+
+    const resizeObserver = new ResizeObserver((entries) => {
+      const entry = entries[0]
+      if (!entry) return
+
+      const nextWidth = Math.round(entry.contentRect.width)
+      
+      globeRef.current?.update({
+        devicePixelRatio: Math.min(window.devicePixelRatio || 1, 2),
+        width: nextWidth,
+        height: nextWidth,
+      })
+    })
+    resizeObserver.observe(canvas)
+
+    function animate() {
+      // Performance: Stop calculating/rendering if the canvas isn't on the screen
+      if (!isVisible) return
+
+      globeRef.current?.update({
+        phi: phiOffsetRef.current + dragOffsetRef.current.phi,
+      })
+      animationId = requestAnimationFrame(animate)
+    }
+
+    // Performance: Pause rendering when not visible
+    const intersectionObserver = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting
+      if (isVisible) {
+        animate() // Restart the animation loop when scrolling back into view
+      }
+    })
+    intersectionObserver.observe(canvas)
+
+    const fadeInId = requestAnimationFrame(() => {
+      setReady(true)
+    })
+
+    return () => {
+      cancelAnimationFrame(animationId)
+      cancelAnimationFrame(fadeInId)
+      resizeObserver.disconnect()
+      intersectionObserver.disconnect()
+      globeRef.current?.destroy()
+      globeRef.current = null
+    }
+  }, [])
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      const isDark = document.documentElement.classList.contains('dark')
+      globeRef.current?.update(getThemeOptions(isDark))
+    })
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    })
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
 
   return (
-    <div className="shadow-feature-card relative flex h-60 flex-col gap-6 overflow-hidden rounded-xl p-4 lg:p-6">
-      <div className="flex items-center gap-2">
-        <MapPinIcon className="size-[18px]" />
-        <h2 className="text-sm">{"India"}</h2>
+    <div className='relative flex h-60 flex-col gap-6 overflow-hidden rounded-2xl p-4 shadow-feature-card lg:p-6'>
+      <div className='flex items-center gap-2'>
+        <MapPinIcon className='size-4.5' />
+        <h2 className='text-sm'>{"India"}</h2>
       </div>
-      <div className="absolute inset-x-0 bottom-[-190px] mx-auto aspect-square h-[388px] [@media(max-width:420px)]:bottom-[-140px] [@media(max-width:420px)]:h-[320px] [@media(min-width:768px)_and_(max-width:858px)]:h-[350px]">
-        <div
-          style={{
-            width: "100%",
-            height: "100%",
-            display: "flex",
-            placeItems: "center",
-            placeContent: "center",
-            overflow: "visible",
-          }}
-        >
+      <div className='relative mx-auto -mt-4 aspect-square max-w-125 select-none'>
+        <canvas
+          ref={canvasRef}
+          onPointerDown={handlePointerDown}
+          data-ready={ready}
+          className='aspect-square size-full cursor-grab touch-none opacity-0 transition-opacity data-[ready=true]:opacity-100'
+        />
+        {MARKERS.map((m) => (
           <div
+            key={m.id}
+            className='pointer-events-none absolute bottom-[anchor(top)] left-[anchor(center)] -translate-x-1/2 -translate-y-2 transition-[opacity,filter]'
             style={{
-              width: "100%",
-              aspectRatio: "1/1",
-              maxWidth: 800,
-              WebkitMaskImage: fadeMask,
-              maskImage: fadeMask,
+              positionAnchor: `--cobe-${m.id}`,
+              opacity: `var(--cobe-visible-${m.id}, 0)`,
+              filter: `blur(calc((1 - var(--cobe-visible-${m.id}, 0)) * 8px))`,
             }}
           >
-            <canvas
-              ref={canvasRef}
-              onPointerDown={(e) => {
-                pointerInteracting.current =  e.clientX - pointerInteractionMovement.current;
-                if (canvasRef.current) canvasRef.current.style.cursor = "grabbing";
-              }}
-              onPointerUp={() => {
-                pointerInteracting.current = null;
-                if (canvasRef.current) canvasRef.current.style.cursor = "grab";
-              }}
-              onPointerOut={() => {
-                pointerInteracting.current = null;
-                if (canvasRef.current) canvasRef.current.style.cursor = "grab";
-              }}
-              onMouseMove={(e) => {
-                if (pointerInteracting.current !== null) {
-                  const delta = e.clientX - pointerInteracting.current;
-                  pointerInteractionMovement.current = delta;
-                  api.start({
-                    r: delta / 200,
-                  });
-                }
-              }}
-              onTouchMove={(e) => {
-                if (pointerInteracting.current !== null && e.touches[0]) {
-                  const delta = e.touches[0].clientX - pointerInteracting.current;
-                  pointerInteractionMovement.current = delta;
-                  api.start({
-                    r: delta / 100,
-                  });
-                }
-              }}
-              style={{
-                width: "100%",
-                height: "100%",
-                contain: "layout paint size",
-                cursor: "auto",
-                userSelect: "none",
-              }}
-            />
+            <Badge>{"Kochi, Kerala"}</Badge>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   )
 }
-
-export default LocationCard
