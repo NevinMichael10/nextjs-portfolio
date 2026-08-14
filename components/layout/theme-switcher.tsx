@@ -12,7 +12,7 @@ export function ThemeSwitcher() {
     <DropdownMenu>
       <DropdownMenuTrigger
         render={
-          <Button variant='ghost' size='icon' className="bg-transparent border-transparent hover:border-transparent hover:cursor-pointer" aria-label={'theme-toggle.toggle-theme'} data-testid='theme-toggle'>
+          <Button variant='ghost' className="size-9 bg-transparent border-transparent rounded-full hover:border-transparent hover:cursor-pointer" aria-label={'theme-toggle.toggle-theme'} data-testid='theme-toggle'>
             <SunIcon className='dark:hidden' />
             <MoonIcon className='hidden dark:block' />
           </Button>

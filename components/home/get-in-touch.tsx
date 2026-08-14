@@ -63,10 +63,13 @@ const GetInTouch = () => {
           <div className="relative size-64 max-md:mx-auto" ref={scope}>
             <BlurImage
               src={techTags.imagePath}
-              width={3975}
-              height={3975}
+              width={112}
+              height={112}
               className="absolute left-1/2 top-1/2 size-20 -translate-x-1/2 -translate-y-1/2 rounded-[20px]"
               alt={"getintouchLogo"}
+              lazy={false}
+              priority={true}
+              fetchPriority="high"
             />
             <div
               id="next-js"
