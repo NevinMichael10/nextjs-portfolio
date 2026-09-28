@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import FilteredCerts from "@/components/certs/filtered-certs";
 import PageTitle from "@/components/page-title";
 import { defaultMetadata } from "@/lib/metadata.config";

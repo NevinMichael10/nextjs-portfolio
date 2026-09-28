@@ -19,6 +19,7 @@ const CertificateCard = ({ id, certificateName, description, imgPath, issueDate,
   return (
     <div className="shadow-feature-card group rounded-xl px-2 py-4">
       <BlurImage
+        key={id}
         src={imgPath}
         className="rounded-lg"
         width={1200}

@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import PageTitle from "@/components/page-title";
 import ItemGrid from "@/components/tech/item-grid";
 import { defaultMetadata } from "@/lib/metadata.config";

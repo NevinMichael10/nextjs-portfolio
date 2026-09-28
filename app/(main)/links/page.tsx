@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import ComingSoon from "@/components/coming-soon/coming-soon";
 import { defaultMetadata } from "@/lib/metadata.config";
 import { comingSoon, SITE_URL } from "@/lib/constants";
