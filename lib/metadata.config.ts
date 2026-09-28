@@ -1,5 +1,5 @@
-import { Metadata } from "next";
-import { SITE_NAME, SITE_URL, SITE_KEYWORDS, authorName,  metadataValues } from "@/lib/constants";
+import type { Metadata } from "next";
+import { SITE_NAME, SITE_URL, SITE_KEYWORDS, authorName, metadataValues } from "@/lib/constants";
 
 export const defaultMetadata: Metadata = {
   metadataBase: new URL(SITE_URL),

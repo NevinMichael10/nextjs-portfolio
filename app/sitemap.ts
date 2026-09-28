@@ -1,4 +1,4 @@
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
 import { SITE_URL, projects } from "@/lib/constants";
 
 const sitemap = (): MetadataRoute.Sitemap => {

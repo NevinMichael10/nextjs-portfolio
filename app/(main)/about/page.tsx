@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import PageTitle from "@/components/page-title";
 import WhoAmI from "@/components/about/who-am-i";
 import { defaultMetadata } from "@/lib/metadata.config";

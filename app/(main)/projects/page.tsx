@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import PageTitle from "@/components/page-title";
 import FilteredProjects from "@/components/projects/filtered-projects";
 import { defaultMetadata } from "@/lib/metadata.config";

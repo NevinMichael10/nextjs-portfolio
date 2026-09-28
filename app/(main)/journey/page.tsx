@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import PageTitle from "@/components/page-title";
 import Experience from "@/components/journey/experience";
 import Education from "@/components/journey/education";
