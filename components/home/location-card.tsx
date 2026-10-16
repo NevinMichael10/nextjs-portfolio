@@ -67,9 +67,8 @@ export function LocationCard() {
 
     const canvas = canvasRef.current
     const width = canvas.offsetWidth
-    
-    // Performance: Cap pixel ratio to avoid GPU overload on ultra-high-res screens
-    const dpr = Math.min(window.devicePixelRatio || 1, 2)
+    const dpr = Math.min(window.devicePixelRatio || 1, window.innerWidth < 640 ? 1.8 : 2)
+    const isDark = document.documentElement.classList.contains('dark')
 
     globeRef.current = createGlobe(canvas, {
       devicePixelRatio: dpr,
@@ -80,7 +79,7 @@ export function LocationCard() {
       mapSamples: 16_000, // 16,000 is a great balance for performance and visuals
       markerElevation: 0.01,
       markers: MARKERS,
-      ...getThemeOptions(false),
+      ...getThemeOptions(isDark),
     })
 
     let animationId = 0
@@ -91,9 +90,10 @@ export function LocationCard() {
       if (!entry) return
 
       const nextWidth = Math.round(entry.contentRect.width)
-      
+      const nextDpr = Math.min(window.devicePixelRatio || 1, window.innerWidth < 640 ? 1.8 : 2)
+
       globeRef.current?.update({
-        devicePixelRatio: Math.min(window.devicePixelRatio || 1, 2),
+        devicePixelRatio: nextDpr,
         width: nextWidth,
         height: nextWidth,
       })
